@@ -1,0 +1,66 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    color: #525252;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 16px;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    color: #f4645f;
+    text-decoration: none;
+}
+nav.main {
+    height: 90px;
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #dee0df;
+}
+@media (max-width: 1080px){
+    nav.main {
+        padding: 0 0;
+        width: 100%;
+    }
+    nav.main a.brand {
+        margin-left: 20px;
+    }
+    .body {
+        padding: 25px 0 !important;
+    }
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+nav.main a.brand {
+    color: #e74430;
+    font-size: 21px;
+    width: 130px;
+    line-height: 90px;
+    position: relative;
+}
+/* .brand:before {
+    content: " ";
+    background: url(https://avatars1.githubusercontent.com/u/11681287?s=40&v=4);
+    clear: both;
+    top: 0;
+    border-radius: 30px;
+    left: -40px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+} */
+.body {
+    background-color: #f0f2f1;
+    width: 100%;
+    float: left;
+    padding: 50px 0;
+}
+.mr5 {
+    margin-right: 5px;   
+}
+.tac {
+    text-align: center;
+}

@@ -1,0 +1,114 @@
+.container {
+    margin: 0 20px;
+}
+.main {
+    background: #FAFAFA;
+}
+@media (max-width: 1080px){
+    nav.main {
+        width: 100%;
+        padding: 0 0;
+    }
+    .container {
+        margin: 0 0px;
+    }
+}
+.formBody {
+    float: left;
+    margin-top: 20px;
+    width: calc(100% - 40px);
+    padding: 20px;
+}
+.form-group {
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+}
+.mdBody {
+    height: 300px;
+}
+.input {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    outline: none;
+}
+.bottom {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #dee0df;
+    background: #FAFAFA;
+    z-index: 1;
+    padding: 15px 0;
+    margin: 0;
+}
+.postBtn {
+    width: 70px;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42858;
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #009a61;
+    border-color: #008151;
+    float: right;
+    margin-right: 20px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+.postBtn:hover {
+    color: #fff;
+    background-color: #006741;
+    border-color: #00432a;
+}
+.tag-editor {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #eee;
+    cursor: text;
+    font: 400 14px sans-serif;
+    color: #555;
+    background: #fff;
+    line-height: 20px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+  .tag-editor li {
+    display: block;
+    float: left;
+    overflow: hidden;
+    height: 30px;
+    margin: 10px 0;
+}
+  .tag-editor .tag-editor-spacer, .tag-editor-delete {
+    height: 100%;
+}
+  .tag-editor .tag-editor-tag, .tag-editor .tag-editor-tag.active {
+    height: 100%;  
+    line-height: 30px;
+}
+  .tag-editor .tag-editor-tag.active input {
+      height: 100%;
+      line-height: 30px;
+}
+  .tag-editor .tag-editor-delete i {
+      line-height: 30px;
+}
+  .tag-editor .tag-editor-delete {
+    border-radius: 0 5px 5px 0;
+}
+  .tag-editor .placeholder {
+    height: 100%;
+    line-height: 30px;
+}

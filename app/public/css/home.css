@@ -1,0 +1,163 @@
+.container {
+    position: relative;
+}
+.login-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    user-select: none;
+}
+.toLogin {
+    line-height: 90px;
+    float: right;
+}
+@media (max-width: 1080px){
+    .login-info {
+        width: auto;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 500px){
+    .login-info {
+        display: none;
+    }
+    .tags {
+        display: none;
+    }
+}
+.hasLogin {
+    height: 100%;
+    width: 100%;
+}
+.hasLogin a{
+    line-height: 90px;
+    height: 100%;
+    display: inline-block;
+    color: #525252;
+    margin-right: 15px;
+}
+.hasLogin a:last-child {
+    margin-right: 0px;
+}
+.hasLogin img {
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    vertical-align: middle;
+}
+.blocks {
+    max-width: 960px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    min-height: 400px;
+}
+.bg1 {
+    background: #2d8cf0;
+}
+.bg2 {
+    background: #ff9900;
+}
+.bg3 {
+    background: #19be6b;
+}
+.bg4 {
+    background: #515a6e;
+}
+.bg5 {
+    background: #17233d;
+}
+.bg6 {
+    background: #2db7f5;
+}
+.bg7 {
+    background: #ed4014;
+}
+.bg8 {
+    background: #2b85e4;
+}
+.bg9 {
+    background: #5cadff;
+}
+.tags {
+    padding: 15px 20px;
+    margin: 0;
+    border-bottom: 1px solid #dee0df;
+}
+.tag {
+    /* background: #317EF3; */
+    color: #fff;
+    padding: 5px 8px;
+    margin: 6px 3px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    display: inline-block;
+    font-family: 'Trebuchet MS', Arial, 'Lucida Grande', Verdana, Lucida, Helvetica, sans-serif;
+}
+.tag a {
+    color: #fff;
+    font-size: 14px;
+}
+.tag font {
+    color: #ecddc2;
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+.view{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.view .item {
+    /* margin: 15px 0; */
+    border-bottom: 1px solid #dee0df;
+    padding: 15px 20px;
+}
+.view .item:hover {
+    background-color: rgba(0,0,0,.02);
+}
+.view .item a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #2e3135;
+}
+.view .item a.artTitle:hover {
+    text-decoration: underline;
+}
+.view .item a.username {
+    font-weight: 300;
+    line-height: 1;
+    color: #999999;
+    font-size: 0.9rem;
+}
+.view .item .afterDoit {
+    position: relative;
+    width: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 0.7rem;
+}
+.view .item a.taga {
+    font-weight: 300;
+    line-height: 1;
+    color: #999999;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+.view .item p {
+    margin: 0;
+    padding: 0;
+    color: #999999;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+.view .item p .time{
+    color: #999999;
+    font-size: 0.9rem;
+}

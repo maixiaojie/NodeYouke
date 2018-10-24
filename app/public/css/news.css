@@ -1,0 +1,21 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+.news-view {
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+}
+.item {
+    margin: 20px 0;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+.item a {
+    color: #999;
+    text-decoration: none;
+}
+.item .time {
+    color: #aaa;
+}

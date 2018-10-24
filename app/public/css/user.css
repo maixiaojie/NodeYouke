@@ -1,0 +1,70 @@
+html, body {
+    background: #f4f5f5;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+nav.main a.brand {
+    margin-left: 0px;
+}
+.main {
+    background: #fff;
+    border-bottom: 1px solid #f1f1f1;
+}
+.mainBody {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.formBody {
+    margin: auto;
+    width: 100%;
+    max-width: 960px;
+    position: relative;
+}
+@media (max-width: 1080px){
+    nav.main {
+        width: 100%;
+        padding: 0 0;
+    }
+    nav.main a.brand {
+        margin-left: 20px;
+    }
+    .detail {
+        width: 100%;
+    }
+    .relative {
+        display: none;
+    }
+}
+.u-container {
+    background: #fff;
+    padding: 20px;
+}
+.username  {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #000;
+}
+.username span  {
+    font-weight: 500;
+}
+.m5 {
+    margin: 5px 0;
+}
+.href {
+    font-size: 17px;
+    margin: 0 4px;
+}
+.loc {
+    color: #506196;
+}
+.bio {
+    font-size: 0.9rem;
+    color: #000;
+}
+.lastlogin {
+    color: #000;
+    font-size: 0.8rem;
+}
