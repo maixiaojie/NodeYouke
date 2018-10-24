@@ -1,12 +1,11 @@
-# example
+# NodeYouke
 
 
 
-## QuickStart
+## Introduce
 
-<!-- add docs here for user -->
+Combined with Natural Language Processing's blog system
 
-see [egg docs][egg] for more detail.
 
 ### Development
 
