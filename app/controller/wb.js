@@ -10,8 +10,9 @@ class WBController extends Controller {
     var uids = ctx.request.query.uid;
     if(access_tokens && uids) {
         // 缺少验证token的有效性
+        // await this.userTimeline(access_tokens, uids);
         const userinfo = await this.usersShow(access_tokens, uids);
-        console.log(userinfo);
+        // console.log(userinfo);
         var s1 = new Date(userinfo.created_at).getTime();
         var s2 = new Date().getTime();
         var days = parseInt((s2-s1) / (1000 * 60 * 60 * 24));
@@ -25,7 +26,7 @@ class WBController extends Controller {
             days,
             create_at: resDate
         }
-        console.log(userData.created_at);
+        // console.log(userData.created_at);
         await ctx.render('wb/day.tpl', {userData});
     }
     else if(code) {
@@ -65,15 +66,15 @@ class WBController extends Controller {
     var ctx = this.ctx;
     var params = {
         access_token,
-        uid,
+        uids:uid,
         count: 40,
         page: 1,
         trim_user: 1
     };
-    var url = `https://api.weibo.com/2/statuses/user_timeline.json?`;
+    var url = `https://api.weibo.com/2/statuses/timeline_batch.json?`;
     const result = await ctx.curl(url+qs.stringify(params));
     var res = JSON.parse(result.data.toString('utf-8'));
-    console.log(res.statuses.length);
+    console.log(res);
   }
   async share(access_token) {
     var url = `https://api.weibo.com/2/statuses/share.json?`;

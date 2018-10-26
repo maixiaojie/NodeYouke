@@ -63,7 +63,7 @@
 <p class="name">@ {{userData.screen_name}}</p>
 <p class="content">今天是你在微博的第<span>{{userData.days}}</span>天</p>
 <p class="content">你在<span class="small">{{userData.create_at }}</span>这个时候注册了微博，</p>
-<p class="content">到现在为止，你关注了<span class="middle">{{userData.followers_count}}</span>人， 共有<span class="middle">{{userData.friends_count}}</span>人关注了你。</p>
+<p class="content">到现在为止，你关注了<span class="middle">{{userData.friends_count}}</span>人， 共有<span class="middle">{{userData.followers_count}}</span>人关注了你。</p>
 <p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p>
 </body>
 <script>
