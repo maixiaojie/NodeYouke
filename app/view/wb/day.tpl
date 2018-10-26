@@ -3,9 +3,6 @@
     <title>{{title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/public/css/common.css" />
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2941004611" type="text/javascript" charset="utf-8"></script>
     <style>
         html, body {
             width: 100%;
@@ -16,6 +13,7 @@
         body {
             background: url('/public/img/bg2.jpg') no-repeat;
             background-size: cover;
+            font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
         .img {
             text-align: center;
@@ -33,16 +31,41 @@
             color: white;
             width: 100%;
         }
+        .intro a {
+            color: #fff;
+        }
+        .name {
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            text-shadow: 0 0 4px rgba(0,0,0,0.5);
+        }
+        .content {
+            text-align: center;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .content span {
+            font-size: 2rem;
+        }
+        .content span.small {
+            font-size: 1.2rem;
+        }
+        .content span.middle {
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
 <p class="img">
-<img src="//tvax1.sinaimg.cn/crop.0.0.996.996.180/8f29f10bly8fr5j8c8qbcj20ro0rogmp.jpg" />
+    <img src="{{userData.profile_image_url}}" />
 </p>
-<p class="intro">@麦晓杰NLP研究工作室出品</p>
+<p class="name">@ {{userData.screen_name}}</p>
+<p class="content">今天是你在微博的第<span>{{userData.days}}</span>天</p>
+<p class="content">你在<span class="small">{{userData.create_at }}</span>这个时候注册了微博，</p>
+<p class="content">到现在为止，你关注了<span class="middle">{{userData.followers_count}}</span>人， 共有<span class="middle">{{userData.friends_count}}</span>人关注了你。</p>
+<p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p>
 </body>
-<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="/public/js/js-cookies.js"></script>
 <script>
 </script>
 </html>
