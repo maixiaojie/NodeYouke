@@ -1,5 +1,4 @@
-<script>
-    //新版统计代码获取 (百度统计)
+//新版统计代码获取 (百度统计)
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -18,4 +17,3 @@ var _hmt = _hmt || [];
   }
   s.parentNode.insertBefore(bp, s);
 })();
-</script>
