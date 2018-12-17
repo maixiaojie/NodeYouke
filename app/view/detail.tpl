@@ -1,6 +1,11 @@
+<!-悠客 ->
 <html>
 <head>
-    <title>{{data.title}} - 悠客 Lite</title>
+    <meta data-vue-meta="true" data-vmid="keywords" name="keywords" content="悠客,麦晓杰,开发者,{{ data.tags }}"/>
+    <meta data-vue-meta="true" data-vmid="description" name="description" content="悠客是另外一个帮助开发者成长的社区，是给开发者用的 Hacker News，给设计师用的 Designer News，和给产品经理用的 Medium。悠客的技术文章由技术大牛和极客共同编辑为你筛选出最优质的干货，其中包括：Android、iOS、前端、后端等方面的内容。用户每天都可以在这里找到技术世界的头条内容。即使你是 GitHub、StackOverflow、开源中国的用户，我们相信你也可以在这里有所收获。"/>
+    <meta name="author" content="麦晓杰 | maixiaojie.github.io" />
+    <meta name="Copyright" content="Copyright (c) 2016-2019 yk.mcust.cn" />
+    <title>{{data.title}} - 悠客</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">    
     <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css" rel="stylesheet">
@@ -11,17 +16,17 @@
 </head>
 <body>
     <nav class="main">
-        <div class="container"><a href="/" class="brand">悠客 Lite</a> <span></span></div>
+        <div class="container"><a href="/" title="悠客 - 另外一个帮助开发者成长的社区" class="brand">悠客 Lite</a> <span></span></div>
     </nav>
     <section class="mainBody">
         <section class="formBody">
             <div class="detail shadow">
                 <div class="form-group flex">
                     <a class="author-img" href="/user/{{auth.id}}">
-                        <img src="{{auth.avatar_url}}" />
+                        <img src="{{auth.avatar_url}}" title="{{ auth.name }} - 用户头像" alt="{{ auth.name }} - 用户头像" />
                     </a>
                     <div class="author-infobox flex-item1">
-                        <a href="/user/{{auth.id}}">{{ auth.name }}</a>
+                        <a href="/user/{{auth.id}}" title="{{ auth.name }}">{{ auth.name }}</a>
                         <p>{{ helper.toDate(data.ctime) }} <span>阅读 {{data.readcount}}</span></p>
                     </div>
                 </div>
@@ -31,7 +36,7 @@
                 <div class="form-group">
                     <ul class="tags">
                         {% for item in helper.str2arr(data.tags) %}
-                            <li class="tag"><a href="/?keywords={{item}}"><i class="mr5 fa fa-tag"></i>{{ item }}</a></li>
+                            <li class="tag"><a href="/?keyword={{item}}" title="{{item}}"><i class="mr5 fa fa-tag"></i>{{ item }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -47,7 +52,7 @@
                 <ul>
                     {% for item in similar %}
                     <li>
-                        <a href="/detail/{{ item.id }}">
+                        <a href="/detail/{{ item.id }}" title="item.title">
                             {{ item.title }}
                             {% if item.similar >= 0.8 %}
                                 <i title="{{ item.similar}}" class="fire fire1 fa fa-fire"></i>

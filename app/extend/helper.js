@@ -12,6 +12,7 @@ var client = new AipNlpClient(APP_ID, API_KEY, SECRET_KEY);
 exports.relativeTime = date => moment(date).fromNow();
 exports.toDate = date => moment(date).format('LLL');
 exports.str2arr = str => str.split(',');
+exports.HomeArr2str = arr => arr.map(item => item.tag).join(',');
 exports.getCount = function(arr) {
   var obj = {},
       k, arr1 = [];

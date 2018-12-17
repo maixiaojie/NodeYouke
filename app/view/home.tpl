@@ -1,6 +1,12 @@
+<!-悠客 ->
 <html>
-<head>
-    <title>{{title}}</title>
+<head>        
+    <meta http-equiv=Content-Language content=zh-cn>
+    <meta data-vue-meta="true" data-vmid="keywords" name="keywords" content="悠客,麦晓杰,开发者,Vue.js,微信小程序,{{ helper.HomeArr2str(tags) }}"/>
+    <meta data-vue-meta="true" data-vmid="description" name="description" content="悠客是另外一个帮助开发者成长的社区，是给开发者用的 Hacker News，给设计师用的 Designer News，和给产品经理用的 Medium。悠客的技术文章由技术大牛和极客共同编辑为你筛选出最优质的干货，其中包括：Android、iOS、前端、后端等方面的内容。用户每天都可以在这里找到技术世界的头条内容。即使你是 GitHub、StackOverflow、开源中国的用户，我们相信你也可以在这里有所收获。"/>
+    <title>{{title}} - 另外一个帮助开发者成长的社区</title>
+    <meta name="author" content="麦晓杰 | maixiaojie.github.io" />
+    <meta name="Copyright" content="Copyright (c) 2016-2019 yk.mcust.cn" />
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/public/css/common.css" />
@@ -9,7 +15,7 @@
 </head>
 <body>
     <nav class="main">
-        <div class="container"><a href="/" class="brand">悠客 Lite</a> <span></span>
+        <div class="container"><a href="/" class="brand" title="悠客 - 另外一个帮助开发者成长的社区">悠客 Lite</a> <span></span>
             <div class="login-info">
             {% if userinfo %}
                 <div class="hasLogin">
@@ -31,27 +37,27 @@
         <section class="blocks">
             <div class="tags">
                 {% for item in tags %}
-                <span class="tag bg{{ helper.rd(1, 9) }}"><a href="/?keyword={{item.tag}}">{{ item.tag }} <font>{{ item.count }} </font></a></span>
+                <span class="tag bg{{ helper.rd(1, 9) }}"><a href="/?keyword={{item.tag}}" title="{{item.tag}}">{{ item.tag }} <font>{{ item.count }} </font></a></span>
                 {% endfor %}
             </div>
             <ul class="view">
                 {% for item in list %}
                 <li class="item">
                     <p>
-                        <span ><a href="/user/{{item.uid}}" class="username" href="">{{item.name}}</a></span><font class="afterDoit">•</font>
+                        <span ><a href="/user/{{item.uid}}" class="username" title="{{item.name}}">{{item.name}}</a></span><font class="afterDoit">•</font>
                         <span class="time">{{ helper.relativeTime(item.ctime) }}</span><font class="afterDoit">•</font>
                         <span>
                             {% set tagArr = helper.str2arr(item.tags) %}
                             {% for tag in tagArr %}
                                 {% if loop.index == loop.length %}
-                                    <a href="/?keyword={{tag}}" class="taga">{{tag}}</a>
+                                    <a href="/?keyword={{tag}}" title="{{tag}}" class="taga">{{tag}}</a>
                                 {% else %}
-                                    <a href="/?keyword={{tag}}" class="taga">{{tag}}</a><font class="afterDoit">/</font>
+                                    <a href="/?keyword={{tag}}" title="{{tag}}" class="taga">{{tag}}</a><font class="afterDoit">/</font>
                                 {% endif %}
                             {% endfor %}
                         </span>
                     </p>
-                    <a class="artTitle" href="/detail/{{ item.id }}">{{ item.title }}</a>
+                    <a class="artTitle" href="/detail/{{ item.id }}" title="{{ item.title }}">{{ item.title }}</a>
                     {# <span class="time">({{ helper.relativeTime(item.ctime) }})</span> #}
                 </li>
                 {% endfor %}
