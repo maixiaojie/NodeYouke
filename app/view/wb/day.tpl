@@ -54,6 +54,13 @@
         .content span.middle {
             font-size: 1.5rem;
         }
+        .keywords {
+            text-align: center;
+        }
+        .keywords a {
+            color: rgb(222, 21, 21);
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -64,8 +71,10 @@
 <p class="content">今天是你在微博的第<span>{{userData.days}}</span>天</p>
 <p class="content">你在<span class="small">{{userData.create_at }}</span>这个时候注册了微博，</p>
 <p class="content">到现在为止，你关注了<span class="middle">{{userData.friends_count}}</span>人， 共有<span class="middle">{{userData.followers_count}}</span>人关注了你。</p>
+<p class="keywords"><a href="/wbkeywords/{{userData.uid}}">点击获取我的微博关键词</a></p>
 <p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p>
 </body>
+<script src="/public/js/common.js"></script>
 <script>
 </script>
 </html>

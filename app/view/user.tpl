@@ -28,6 +28,7 @@
         </section>
     </section>
 </body>
+<script src="/public/js/common.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 
 </html>

@@ -77,6 +77,7 @@
     </section>
     
 </body>
+<script src="/public/js/common.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/caret/1.0.0/jquery.caret.min.js"></script>
 <script src="/public/js/js-cookies.js"></script>

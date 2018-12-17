@@ -13,4 +13,5 @@
         {% endfor %}
     </ul>
 </body>
+<script src="/public/js/common.js"></script>
 </html>

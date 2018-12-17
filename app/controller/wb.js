@@ -24,6 +24,7 @@ class WBController extends Controller {
             followers_count: userinfo.followers_count,
             friends_count: userinfo.friends_count,
             days,
+            uid: uids,
             create_at: resDate
         }
         // console.log(userData.created_at);
@@ -50,6 +51,15 @@ class WBController extends Controller {
         await ctx.render('wb/demo.tpl');
     } 
     
+  }
+  async keywords() {
+    var ctx =this.ctx;
+    const uid = ctx.params.uid;
+    console.log(uid)
+    const userData = {
+        screen_name: '丶aNva丨'
+    };
+    await ctx.render('wb/keywords.tpl', {userData});
   }
   /**
    * users/show  根据用户ID获取用户信息

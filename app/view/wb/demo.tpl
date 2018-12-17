@@ -55,6 +55,7 @@
 </div>
 {# <p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p> #}
 </body>
+<script src="/public/js/common.js"></script>
 <script>
 </script>
 </html>

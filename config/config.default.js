@@ -26,7 +26,8 @@ module.exports = appInfo => {
   config.passportGithub = {
     key: 'e99b3cc277c87e862414',
     secret: 'ce040dab73dc4650f27a9e0c309c61109064cf69',
-    callbackURL: 'http://127.0.0.1:7001/passport/github/callback'
+    proxy: true,
+    // callbackURL: 'http://yk.mcust.cn/passport/github/callback'
 
   };
   config.view = {
