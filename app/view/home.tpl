@@ -28,8 +28,6 @@
                     <a href="/passport/github"><i class="fa fa-github mr5"></i>登录</a>
                 </div>
             {% endif %}
-                
-                
             <div>
         </div>
     </nav>
@@ -58,7 +56,6 @@
                         </span>
                     </p>
                     <a class="artTitle" href="/detail/{{ item.id }}" title="{{ item.title }}">{{ item.title }}</a>
-                    {# <span class="time">({{ helper.relativeTime(item.ctime) }})</span> #}
                 </li>
                 {% endfor %}
             </ul>

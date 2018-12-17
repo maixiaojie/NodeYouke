@@ -64,7 +64,6 @@
                                 <i title="{{ item.similar }}" class="fire fire4 fa fa-fire"></i>
                             {% else %}
                             {% endif %}
-                            
                             <div class="bloginfo-container">
                             <span class="bloginfo"><i class="mr5 fa fa-eye"></i>{{item.readcount}}</span>
                             <span class="bloginfo"><i class="mr5 fa fa-star-o"></i>{{ helper.rd(4, 13) }}</span>
@@ -72,15 +71,12 @@
                             <span class="bloginfo"><i class="mr5 fa fa-comment-o"></i>{{ helper.rd(1, 9) }}</span>
                             </div>
                         </a>
-                        
-                        {# <a class="userinfo" href="/user/{{ item.uid }}"><img src="{{item.avatar_url}}" />{{ item.name }}</a> #}
                     </li>
                     {% endfor %}
                 </ul>
             </div>
         </section>
     </section>
-    
 </body>
 <script src="/public/js/common.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
