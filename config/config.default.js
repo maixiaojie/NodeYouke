@@ -34,7 +34,8 @@ module.exports = appInfo => {
   config.SinaWB = {
     client_id: '3873533066',
     client_secret: '43d4d25d3304312f7986c06ef98a0300',
-    redirect_uri: 'http://yk.mcust.cn/wb'
+    // redirect_uri: 'http://yk.mcust.cn/wb',
+    redirect_uri: 'http://127.0.0.1:7001/wb',
   };
   config.view = {
     defaultViewEngine: 'nunjucks',
