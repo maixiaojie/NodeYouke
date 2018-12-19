@@ -61,6 +61,17 @@
             color: rgb(222, 21, 21);
             font-size: 18px;
         }
+        @media screen and (min-width: 780px) {
+            body {
+                width:400px;
+                margin-left: calc(50% - 200px) !important;
+                background-position: 50% 0;
+                background-size: 400px 100%;
+            }
+            .btn {
+                width: 400px;
+            }
+        }
     </style>
 </head>
 <body>

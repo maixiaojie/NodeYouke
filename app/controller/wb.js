@@ -33,7 +33,7 @@ class WBController extends Controller {
     else if(code) {
         const client_id = '3873533066';
         const client_secret = '43d4d25d3304312f7986c06ef98a0300';
-        const redirect_uri = 'http://127.0.0.1:7001/wb';
+        const redirect_uri = 'http://yk.mcust.cn/wb';
         console.log(code);
         var url = `https://api.weibo.com/oauth2/access_token?client_id=${client_id}&client_secret=${client_secret}&grant_type=authorization_code&redirect_uri=${redirect_uri}&code=${code}`;
         const result = await ctx.curl(url, {
@@ -91,7 +91,7 @@ class WBController extends Controller {
     var params = {
         access_token,
         status: encodeURIComponent('http://www.baidu.com/share/'),
-        rip: '127.0.0.1'
+        rip: '106.12.202.229'
     };
     var qs = require('querystring');
     var ctx = this.ctx;

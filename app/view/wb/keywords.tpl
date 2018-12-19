@@ -54,7 +54,17 @@
             color:#909090;
             font-size:12px;
         }
-
+        @media screen and (min-width: 780px) {
+            body {
+                width:400px;
+                margin-left: calc(50% - 200px) !important;
+                background-position: 50% 0;
+                background-size: 400px 100%;
+            }
+            .btn {
+                width: 400px;
+            }
+        }
     </style>
 </head>
 <body>

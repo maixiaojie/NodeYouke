@@ -17,6 +17,24 @@
             background-attachment: fixed;
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
+        .btn {
+            position: absolute;
+            bottom: 23%;
+            text-align: center;
+            width: 100%;
+        }
+        @media screen and (min-width: 780px) {
+            body {
+                width:400px;
+                margin-left: calc(50% - 200px) !important;
+                background-position: 50% 0;
+                background-size: 400px 100%;
+            }
+            .btn {
+                width: 400px;
+            }
+        }
+       
         .title {
             text-align: center;
             color: rgb(239, 44, 61);
@@ -24,12 +42,7 @@
             font-size: 1.5rem;
             font-weight: 500;
         }
-        .btn {
-            position: absolute;
-            bottom: 23%;
-            text-align: center;
-            width: 100%;
-        }
+        
         .btn a {
             display: inline-block;
         }
