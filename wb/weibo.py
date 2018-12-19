@@ -13,6 +13,7 @@ import math
 import MySQLdb
 import time
 import codecs
+import sys
 
 dbWB = MySQLdb.connect('140.143.163.52', 'root', 'wenyujie@123', 'mdblog',  charset='utf8')
 cursorWB = dbWB.cursor()
@@ -101,5 +102,7 @@ class Weibo(object):
 
 if __name__ == '__main__':
 	weibo=Weibo()
-	weibo.main('2401890571')
+	uid = sys.argv[1]
+	if uid != '':
+		weibo.main('2401890571')
 	

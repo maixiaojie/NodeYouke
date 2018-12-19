@@ -46,6 +46,7 @@ class WBController extends Controller {
             }
             const access_token = res.access_token;
             const uid = res.uid;
+            this.toGetWBdata(uid);
             ctx.redirect(`/wb?access_token=${access_token}&uid=${uid}`);
         } else {
             const sinaApiConf = this.config.SinaWB;
@@ -136,17 +137,23 @@ class WBController extends Controller {
         });
     }
     /**
-     * 调用另外一个nodejs脚本，去计算文档相似度
+     * 调用python脚本
      */
-    countSimilar() {
-        const path = require('path');
-        var process = require('child_process');
-        var appRoot = path.resolve(__dirname, '../../');
-        var similarCountAppPath = path.join(appRoot, 'similar');
-        var shell = `cd ${similarCountAppPath} && node index.js`;
-        process.exec(shell, (error, stdout, stderr) => {
-            if (error) throw error;
-        });
+    toGetWBdata(uid) {
+        try {
+            const path = require('path');
+            var process = require('child_process');
+            var appRoot = path.resolve(__dirname, '../../');
+            var pythonWBAppPath = path.join(appRoot, 'wb');
+            var shell = `cd ${pythonWBAppPath} && python weibo.py ${uid}`;
+            console.log(shell)
+            process.exec(shell, (error, stdout, stderr) => {
+                if (error) throw error;
+            });
+        }catch(e) {
+            console.log(e)
+        }
+        
     }
     /**
      * users/show  根据用户ID获取用户信息
