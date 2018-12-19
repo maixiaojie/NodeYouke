@@ -30,6 +30,12 @@ module.exports = appInfo => {
     // callbackURL: 'http://yk.mcust.cn/passport/github/callback'
 
   };
+  // 新浪微博网页应用信息配置
+  config.SinaWB = {
+    client_id: '3873533066',
+    client_secret: '43d4d25d3304312f7986c06ef98a0300',
+    redirect_uri: 'http://yk.mcust.cn/wb'
+  };
   config.view = {
     defaultViewEngine: 'nunjucks',
     mapping: {

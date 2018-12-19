@@ -31,9 +31,9 @@ class WBController extends Controller {
         await ctx.render('wb/day.tpl', {userData});
     }
     else if(code) {
-        const client_id = '3873533066';
-        const client_secret = '43d4d25d3304312f7986c06ef98a0300';
-        const redirect_uri = 'http://yk.mcust.cn/wb';
+        const client_id = this.config.SinaWB.client_id;
+        const client_secret = this.config.SinaWB.client_secret;
+        const redirect_uri = this.config.SinaWB.redirect_uri;
         console.log(code);
         var url = `https://api.weibo.com/oauth2/access_token?client_id=${client_id}&client_secret=${client_secret}&grant_type=authorization_code&redirect_uri=${redirect_uri}&code=${code}`;
         const result = await ctx.curl(url, {
@@ -48,7 +48,8 @@ class WBController extends Controller {
         const uid = res.uid;
         ctx.redirect(`/wb?access_token=${access_token}&uid=${uid}`);
     }else {
-        await ctx.render('wb/demo.tpl');
+        const sinaApiConf = this.config.SinaWB;
+        await ctx.render('wb/grant.tpl', {sinaApiConf});
     } 
     
   }

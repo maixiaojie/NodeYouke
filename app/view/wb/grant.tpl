@@ -3,7 +3,7 @@
     <title>{{title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2941004611" type="text/javascript" charset="utf-8"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3873533066" type="text/javascript" charset="utf-8"></script>
     <style>
         html, body {
             width: 100%;
@@ -34,7 +34,6 @@
                 width: 400px;
             }
         }
-       
         .title {
             text-align: center;
             color: rgb(239, 44, 61);
@@ -62,7 +61,7 @@
 {# <h2 class="title">查看你注册微博多少天了</h2> #}
 
 <div class="btn WB_loginButton WB_widgets">
-    <a href="https://api.weibo.com/oauth2/authorize?client_id=3873533066&response_type=code&redirect_uri=http://127.0.0.1:7001/wb">
+    <a href="https://api.weibo.com/oauth2/authorize?client_id={{sinaApiConf.client_id}}&response_type=code&redirect_uri={{sinaApiConf.redirect_uri}}">
         <img src="http://timg.sjs.sinajs.cn/t4/appstyle/widget/images/loginButton/loginButton_24.png">
     </a>
 </div>
