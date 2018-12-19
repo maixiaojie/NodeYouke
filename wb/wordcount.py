@@ -54,7 +54,7 @@ class wordcount(object):
 
 	def word_cloud(self, text, uid):
 		font = './font/baiduzong.ttf'
-		filename = './userimg/'+ uid+'.png'
+		filename = '../app/public/userimg/'+ uid+'.png'
 		bg_mask = np.array(Image.open('./mask/mask4.png'))
 		wc = WordCloud(font_path=font,
 			background_color='white',
