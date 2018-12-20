@@ -136,6 +136,19 @@ class WBController extends Controller {
             userData
         });
     }
+    async wbdata() {
+        var ctx = this.ctx;
+        const uid = ctx.params.uid;
+        console.log(uid)
+        const userData = {
+            uid,
+            screen_name: '丶aNva丨',
+            profile_image_url: 'http://tvax1.sinaimg.cn/crop.0.0.996.996.50/8f29f10bly8fr5j8c8qbcj20ro0rogmp.jpg'
+        };
+        await ctx.render('wb/data.tpl', {
+            userData
+        });
+    }
     /**
      * 调用python脚本
      */

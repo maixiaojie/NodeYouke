@@ -11,18 +11,18 @@
             padding: 0;
         }
         body {
-            background: url('/public/img/bg2c.png') no-repeat;
+            background: url('/public/img/databg.jpg') no-repeat;
             background-size: cover;
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
         .img {
             text-align: center;
-            padding-top: 40%;
+            padding-top: 10%;
         }
         .img img {
-            width: 130px;
-            height: 130px;
-            border-radius: 130px;
+            width: 80px;
+            height: 80px;
+            border-radius: 80px;
         }
         .intro {
             position: absolute;
@@ -79,11 +79,12 @@
     <img src="{{userData.profile_image_url}}" />
 </p>
 <p class="name">@ {{userData.screen_name}}</p>
-<p class="content">今天是我在微博的第<span>{{userData.days}}</span>天</p>
-<p class="content">我在<span class="small">{{userData.create_at }}</span>这个时候注册了微博，</p>
-<p class="content">到现在为止，我关注了<span class="middle">{{userData.friends_count}}</span>人， 共有<span class="middle">{{userData.followers_count}}</span>人关注了我。</p>
-{# <p class="keywords"><a href="/wbkeywords/{{userData.uid}}">点击获取我的微博关键词</a></p> #}
-<p class="keywords"><a href="/wbdata/{{userData.uid}}">点击查看下一页</a></p>
+<p class="content">2018, 我一共发布微博<span>212</span>条</p>
+<p class="content">其中，转发<span>26</span>条，原创<span>124</span>条</p>
+<p class="content">2018，我共获得点赞<span>342</span>次</p>
+<p class="content">2018，我的微博一共被转发<span>342</span>次</p>
+<p class="content">2018，我的微博总计收到评论<span>3442</span>条</p>
+<p class="keywords"><a href="/wbkeywords/{{userData.uid}}">点击查看我的微博词云</a></p>
 {# <p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p> #}
 </body>
 <script src="/public/js/common.js"></script>
