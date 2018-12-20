@@ -12,7 +12,7 @@
             padding: 0;
         }
         body {
-            background: url('/public/img/5baf222d1499d.jpg') no-repeat;
+            background: url('/public/img/grant2.png') no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;

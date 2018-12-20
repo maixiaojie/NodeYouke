@@ -46,7 +46,7 @@ class WBController extends Controller {
             }
             const access_token = res.access_token;
             const uid = res.uid;
-            this.toGetWBdata(uid);
+            // this.toGetWBdata(uid);
             ctx.redirect(`/wb?access_token=${access_token}&uid=${uid}`);
         } else {
             const sinaApiConf = this.config.SinaWB;

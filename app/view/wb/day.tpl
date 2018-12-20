@@ -11,7 +11,7 @@
             padding: 0;
         }
         body {
-            background: url('/public/img/bg2.jpg') no-repeat;
+            background: url('/public/img/bg2c.png') no-repeat;
             background-size: cover;
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
