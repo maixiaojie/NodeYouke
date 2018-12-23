@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="/public/css/animate.css" />
     <style>
         body {
-            background: url('/public/assets/2.png') no-repeat;
+            background: url('/public/assets/3.png') no-repeat;
             background-size: cover;
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
-        .top {
-            width: 86%;
-            margin: 20px 7%;
-            height: 45%;
-            background: url(/public/assets/天.png) no-repeat;
+        .bottom {
+            width: 100%;
+            position: absolute;
+            bottom: 10%;
+            height: 30%;
+            background: url(/public/assets/船.png) no-repeat;
             background-size: 100% 100%;
+            opacity: 0.9;
         }
         @media screen and (min-width: 780px) {
             body {
@@ -32,14 +34,14 @@
     </style>
 </head>
 <body>
-<div class="top"></div>
-<p class="name animated bounceInLeft">在2018年</p>
+<p class="name animated bounceInLeft" style="margin-top:12%;">在2018年</p>
 <p class="divide"></p>
-<p class="ct animated bounceInRight">你一共发布微博  {{data.count}} 条</p>
-<p class="ct animated bounceInLeft">其中，转发 {{data.rc}} 条</p>
-<p class="ct animated bounceInRight" style="padding-left: 3em;">原创 {{data.ycc}} 条</p>
+<p class="ct animated bounceInRight">微博一共被转发 {{data.rcc}} 次</p>
+<p class="ct animated bounceInLeft">获得点赞 {{data.ac}} 次</p>
+<p class="ct animated bounceInRight">收到评论 {{data.cc}} 次</p>
+<div class="bottom"></div>
 <div class="nextcontainer">
-    <a class="animated infinite pulse delay-2s" href="/wbdata2/{{userData.uid}}"><img src="/public/assets/Path.png" />next</a>
+    <a class="animated infinite pulse delay-2s" href="/wbkeywords/{{userData.uid}}"><img src="/public/assets/Path.png" />next</a>
 </div>
 </body>
 <script src="/public/js/common.js"></script>

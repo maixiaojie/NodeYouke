@@ -11,12 +11,12 @@ class WbService extends Service {
         return rs;
     }
     async getcount(uid) {
-        const sql = `SELECT COUNT(*) FROM wb WHERE uid = '${uid}' AND LENGTH(created_at) != 10`
+        const sql = `SELECT COUNT(*) AS count FROM wb WHERE uid = '${uid}' AND LENGTH(created_at) != 10`
         const rs = await this.app.mysql.query(sql);
         return rs;
     }
     async getRetweentedCount(uid) {
-        const sql = `SELECT COUNT(*) FROM wb WHERE uid = '${uid}' AND is_retweeted = '1' AND LENGTH(created_at) != 10`;
+        const sql = `SELECT COUNT(*) AS rc  FROM wb WHERE uid = '${uid}' AND is_retweeted = '1' AND LENGTH(created_at) != 10`;
         const rs = await this.app.mysql.query(sql);
         return rs;
     }

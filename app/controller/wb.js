@@ -139,15 +139,82 @@ class WBController extends Controller {
     async wbdata() {
         var ctx = this.ctx;
         const uid = ctx.params.uid;
-        console.log(uid)
-        const userData = {
-            uid,
-            screen_name: '丶aNva丨',
-            profile_image_url: 'http://tvax1.sinaimg.cn/crop.0.0.996.996.50/8f29f10bly8fr5j8c8qbcj20ro0rogmp.jpg'
-        };
-        await ctx.render('wb/data.tpl', {
-            userData
-        });
+        const wbcountData = await this.ctx.service.wb.getcount(uid);
+        const wbcount = wbcountData[0].count;
+        console.log(wbcount)
+        if(wbcount == 0) {
+            //数据抓取未完成 或者无数据 或者数据抓取失败
+
+            const userData = {
+                uid,
+                screen_name: '丶aNva丨',
+                profile_image_url: 'http://tvax1.sinaimg.cn/crop.0.0.996.996.50/8f29f10bly8fr5j8c8qbcj20ro0rogmp.jpg'
+            };
+            await ctx.render('wb/data.tpl', {
+                userData
+            });
+        }else {
+            const userinfo = await this.ctx.service.wbuser.findOne({id: uid});
+            const sum = await this.ctx.service.wb.getRetweentedCount(uid);
+            var data = {};
+            data.count = wbcount; //发布的微博总数
+            const rc = sum[0].rc; 
+            data.rc = rc; //转发微博数
+            data.ycc = data.count - data.rc; //发布的原创微博总数
+            const count = await this.ctx.service.wb.getSum(uid);
+            data.rcc = count[0].rc; // 微博被转发总数
+            data.cc = count[0].cc; // 微博被评论总数
+            data.ac = count[0].ac; // 微博被点赞总数
+            const userData = {
+                uid,
+                screen_name: userinfo.screen_name,
+                profile_image_url: userinfo.profile_image_url
+            };
+            await ctx.render('wb/data.tpl', {
+                userData,
+                data
+            });
+        } 
+    }
+    async wbdata2() {
+        var ctx = this.ctx;
+        const uid = ctx.params.uid;
+        const wbcountData = await this.ctx.service.wb.getcount(uid);
+        const wbcount = wbcountData[0].count;
+        console.log(wbcount)
+        if(wbcount == 0) {
+            //数据抓取未完成 或者无数据 或者数据抓取失败
+
+            const userData = {
+                uid,
+                screen_name: '丶aNva丨',
+                profile_image_url: 'http://tvax1.sinaimg.cn/crop.0.0.996.996.50/8f29f10bly8fr5j8c8qbcj20ro0rogmp.jpg'
+            };
+            await ctx.render('wb/data2.tpl', {
+                userData
+            });
+        }else {
+            const userinfo = await this.ctx.service.wbuser.findOne({id: uid});
+            const sum = await this.ctx.service.wb.getRetweentedCount(uid);
+            var data = {};
+            data.count = wbcount; //发布的微博总数
+            const rc = sum[0].rc; 
+            data.rc = rc; //转发微博数
+            data.ycc = data.count - data.rc; //发布的原创微博总数
+            const count = await this.ctx.service.wb.getSum(uid);
+            data.rcc = count[0].rc; // 微博被转发总数
+            data.cc = count[0].cc; // 微博被评论总数
+            data.ac = count[0].ac; // 微博被点赞总数
+            const userData = {
+                uid,
+                screen_name: userinfo.screen_name,
+                profile_image_url: userinfo.profile_image_url
+            };
+            await ctx.render('wb/data2.tpl', {
+                userData,
+                data
+            });
+        } 
     }
     /**
      * 调用python脚本

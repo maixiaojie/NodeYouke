@@ -18,6 +18,7 @@ module.exports = app => {
   router.get('/wb', controller.wb.index);
   router.get('/wbkeywords/:uid', controller.wb.keywords);
   router.get('/wbdata/:uid', controller.wb.wbdata);
+  router.get('/wbdata2/:uid', controller.wb.wbdata2);
   router.get('/news', controller.news.list);
   router.get('/new', controller.news.lists);
 };

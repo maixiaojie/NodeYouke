@@ -3,55 +3,33 @@
     <title>{{title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/public/css/wbcommon.css" />
+    <link rel="stylesheet" href="/public/css/animate.css" />
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
         body {
-            background: url('/public/img/bg2c.png') no-repeat;
-            background-size: 100% 100%;
-            background-attachment: fixed;
+            {# background: url('/public/img/bg2c.png') no-repeat; #}
+            {# background-size: 100% 100%; #}
+            background-image: linear-gradient(-45deg, #FA742B 0%, #FDD265 100%);
+            {# background-attachment: fixed; #}
             {# background:#fff; #}
         }
         .title {
             width:100%;
-            height:6rem;
-            {# background: #fe8100; #}
-            background:#00D0CF;
-            color: white;
-            text-align: center;
-            font-size: 28px;
-            line-height: 6rem;
-            font-family: '苹方',Pingfang;
-        }
-        .name {
-            width:100%;
-            height:3rem;
-            line-height:3rem;
-            padding: 0;
-            margin: 0;
-            color: #fff;
-            font-weight: bold;
+            font-family: PingFangSC-Regular;
             font-size: 22px;
-            font-family: '苹方',Pingfang;
-            padding-bottom: 10px;
-            background: #00D0CF;
+            color: #FFFFFF;
             text-align: center;
-        }
-        .intro {
-            text-align: center;
-            width: 100%;
-            color: #333;
-        }
-        .intro a {
-            color: #333;
+            height:6rem;
+            margin-top: 9%;
+            {# background: #fe8100; #}
+            {# background:#00D0CF; #}
+            line-height: 6rem;
         }
         .keywordimg {
-            width:90%;
+            width: calc(90% - 56px);
             margin: 5%;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.5);
             margin-top: 0;
         }
         .tips {
@@ -76,11 +54,9 @@
     </style>
 </head>
 <body>
-<div class="title">2018我的微博词云</div>
-<p class="name">@ {{userData.screen_name}}</p>
-<img class="keywordimg" src="/public/wb/2401890571.png" />
+<div class="title animated bounceIn">2018，你的微博关键词</div>
+<img class="keywordimg animated zoomIn" src="/public/wb/2401890571.png" />
 <p class="tips">tips:长按可以保存到手机</p>
-{# <p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p> #}
 </body>
 <script src="/public/js/common.js"></script>
 <script>
