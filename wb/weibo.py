@@ -13,8 +13,7 @@ import math
 import MySQLdb
 import time
 import codecs
-import sys
-
+from wordcount import *
 dbWB = MySQLdb.connect('140.143.163.52', 'root', 'wenyujie@123', 'mdblog',  charset='utf8')
 cursorWB = dbWB.cursor()
 cursorWB.execute('SET NAMES utf8mb4')
@@ -99,14 +98,14 @@ class Weibo(object):
 			list_cards = self.get_weibo(uid,i+1)
 			self.handle_cardlist(list_cards, uid)
 		dbWB.commit()
+		wordc = wordcount(uid)
+		wordc.main()
 		# cursorWB.close()
 		# dbWB.close()
 
 if __name__ == '__main__':
 	weibo=Weibo()
+	# weibo.main('2401890571')
 	uid = sys.argv[1]
 	if uid != '':
-		weibo.main('2401890571')
-
-	
-	
+		weibo.main(uid)
