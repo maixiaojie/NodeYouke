@@ -35,6 +35,9 @@
 </head>
 <body>
 <div class="top"></div>
+{% if wbcount == 0 %}
+<p class="ct animated bounceInLeft">一大波数据正在处理中，请稍后刷新本页面查看</p>
+{% else %}
 <p class="name animated bounceInLeft">在2018年</p>
 <p class="divide"></p>
 <p class="ct animated bounceInRight">你一共发布微博  {{data.count}} 条</p>
@@ -43,6 +46,8 @@
 <div class="nextcontainer">
     <a class="animated infinite pulse delay-2s" href="/wbdata2/{{userData.uid}}"><img src="/public/assets/Path.png" />next</a>
 </div>
+{% endif  %}
+
 </body>
 <script src="/public/js/common.js"></script>
 <script>

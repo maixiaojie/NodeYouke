@@ -150,7 +150,6 @@ class WBController extends Controller {
         const uid = ctx.params.uid;
         const wbcountData = await this.ctx.service.wb.getcount(uid);
         const wbcount = wbcountData[0].count;
-        console.log(wbcount)
         if(wbcount == 0) {
             //数据抓取未完成 或者无数据 或者数据抓取失败
 
@@ -160,7 +159,8 @@ class WBController extends Controller {
                 profile_image_url: 'http://tvax1.sinaimg.cn/crop.0.0.996.996.50/8f29f10bly8fr5j8c8qbcj20ro0rogmp.jpg'
             };
             await ctx.render('wb/data.tpl', {
-                userData
+                userData,
+                wbcount
             });
         }else {
             const userinfo = await this.ctx.service.wbuser.findOne({id: uid});
@@ -181,7 +181,8 @@ class WBController extends Controller {
             };
             await ctx.render('wb/data.tpl', {
                 userData,
-                data
+                data,
+                wbcount
             });
         } 
     }
@@ -231,18 +232,18 @@ class WBController extends Controller {
     toGetWBdata(uid) {
         try {
             const path = require('path');
-            var spawn = require('child_process').spawn;
+            var process = require('child_process');
             var appRoot = path.resolve(__dirname, '../../');
             var pythonWBAppPath = path.join(appRoot, 'wb');
             var shell = `cd ${pythonWBAppPath} && python weibo.py ${uid}`;
             console.log(shell)
-            var pyscript = spawn(shell,['-m']);
-            pyscript.on('exit', function (code, signal) { 
-                console.log('child process eixt ,exit:' + code); 
-            });
-            // process.exec(shell, (error, stdout, stderr) => {
-            //     if (error) throw error;
+            // var pyscript = spawn(shell,['-m']);
+            // pyscript.on('exit', function (code, signal) { 
+            //     console.log('child process eixt ,exit:' + code); 
             // });
+            process.exec(shell, (error, stdout, stderr) => {
+                if (error) throw error;
+            }); 
         }catch(e) {
             console.log(e)
         }
