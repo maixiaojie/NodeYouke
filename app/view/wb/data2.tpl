@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="/public/css/animate.css" />
     <style>
         body {
-            background: url('/public/assets/3.png') no-repeat;
-            background-size: cover;
+            {# background: url('/public/assets/3.png') no-repeat;
+            background-size: cover; #}
+            background-image: linear-gradient(44deg, #FECFA9 0%, #FD7189 100%);
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
         .bottom {
