@@ -27,6 +27,11 @@ class WBController extends Controller {
                 uid: uids,
                 create_at: resDate
             }
+            const wbcountData = await ctx.service.wb.getcount(uids);
+            const wbcount = wbcountData[0].count;
+            if(wbcount == 0) {
+                this.toGetWBdata(uid);
+            }
             await ctx.render('wb/day.tpl', {
                 userData
             });
@@ -46,7 +51,7 @@ class WBController extends Controller {
             }
             const access_token = res.access_token;
             const uid = res.uid;
-            const wbcountData = await this.ctx.service.wb.getcount(uid);
+            const wbcountData = await ctx.service.wb.getcount(uid);
             const wbcount = wbcountData[0].count;
             if(wbcount == 0) {
                 this.toGetWBdata(uid);
