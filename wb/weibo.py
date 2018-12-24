@@ -49,17 +49,17 @@ class Weibo(object):
 		ob_json = json.loads(response.text)
 		totalData = ob_json.get('data').get('cardlistInfo').get('total')
 		total_page = int(math.ceil(totalData / 10)) + 1
-		print '一共' + str(total_page) + '页微博...'
-		print '一共' + str(totalData) + '条微博...'
+		# print '一共' + str(total_page) + '页微博...'
+		# print '一共' + str(totalData) + '条微博...'
 		return total_page
 
 	def get_weibo(self,id,page):
 		url = 'https://m.weibo.cn/api/container/getIndex?uid={}&type=uid&value={}&containerid=107603{}&page={}'.format(id,id,id,page)
 		response = requests.get(url)
-		print '正在爬取...' + str(response.url)
+		# print '正在爬取...' + str(response.url)
 		ob_json = json.loads(response.text)
 		list_cards = ob_json.get('data').get('cards')
-		print '第' + str(page) + '页数据获取成功...'
+		# print '第' + str(page) + '页数据获取成功...'
 		return list_cards
 
 	def write2file(self, data, filename):
@@ -80,7 +80,7 @@ class Weibo(object):
 					pre_text = Tool.replace(text)
 					retweeted_status = card.get('mblog').get('retweeted_status')
 					created_at = card.get('mblog').get('created_at')
-					print pre_text
+					# print pre_text
 					if retweeted_status:
 						is_retweeted = 1
 					else:
@@ -90,7 +90,7 @@ class Weibo(object):
 						self.write2file(pre_text, './userdata/'+uid+'.txt')
 						row_count = cursorWB.execute(sql, [id, uid, wb_id, pre_text, source, reposts_count, comments_count, attitudes_count, is_retweeted, created_at, text])
 					except BaseException as t:
-						print t
+						# print t
 						print wb_id
 					finally:
 						pass
