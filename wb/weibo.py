@@ -15,6 +15,10 @@ import MySQLdb
 import time
 import codecs
 from wordcount import *
+
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
+
 dbWB = MySQLdb.connect('140.143.163.52', 'root', 'wenyujie@123', 'mdblog',  charset='utf8')
 cursorWB = dbWB.cursor()
 cursorWB.execute('SET NAMES utf8mb4')

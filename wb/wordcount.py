@@ -4,6 +4,7 @@
 # @Author  : maixiaojie (tracywyj@gmail.com)
 # @Link    : https://maixiaojie.github.io
 # @Version : $Id$
+import sys
 import json
 import jieba
 import jieba.analyse
@@ -14,6 +15,10 @@ import codecs
 import weibo as wb
 import service
 import readdict as Dict
+
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
+
 print '加载用户词库中...'
 jieba.load_userdict('./dict/userdict.txt')
 print '用户词库加载完成...'
