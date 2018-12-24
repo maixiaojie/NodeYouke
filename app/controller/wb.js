@@ -231,14 +231,18 @@ class WBController extends Controller {
     toGetWBdata(uid) {
         try {
             const path = require('path');
-            var process = require('child_process');
+            var spawn = require('child_process').spawn;
             var appRoot = path.resolve(__dirname, '../../');
             var pythonWBAppPath = path.join(appRoot, 'wb');
             var shell = `cd ${pythonWBAppPath} && python weibo.py ${uid}`;
             console.log(shell)
-            process.exec(shell, (error, stdout, stderr) => {
-                if (error) throw error;
+            var pyscript = spawn(shell,['-m']);
+            pyscript.on('exit', function (code, signal) { 
+                console.log('child process eixt ,exit:' + code); 
             });
+            // process.exec(shell, (error, stdout, stderr) => {
+            //     if (error) throw error;
+            // });
         }catch(e) {
             console.log(e)
         }
