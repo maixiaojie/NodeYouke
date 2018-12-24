@@ -30,7 +30,7 @@ class WBController extends Controller {
             const wbcountData = await ctx.service.wb.getcount(uids);
             const wbcount = wbcountData[0].count;
             if(wbcount == 0) {
-                this.toGetWBdata(uid);
+                this.toGetWBdata(uids);
             }
             await ctx.render('wb/day.tpl', {
                 userData
