@@ -93,6 +93,8 @@ class Weibo(object):
 
 	def main(self,uid):
 		total_sum = self.get_total(uid, 1)
+		if total_sum > 100:
+			total_sum = 100
 		for i in range(total_sum):
 			list_cards = self.get_weibo(uid,i+1)
 			self.handle_cardlist(list_cards, uid)
@@ -105,4 +107,6 @@ if __name__ == '__main__':
 	uid = sys.argv[1]
 	if uid != '':
 		weibo.main('2401890571')
+
+	
 	
