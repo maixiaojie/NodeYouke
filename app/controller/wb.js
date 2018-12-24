@@ -139,7 +139,8 @@ class WBController extends Controller {
         const uid = ctx.params.uid;
         console.log(uid)
         const userData = {
-            screen_name: '丶aNva丨'
+            screen_name: '丶aNva丨',
+            uid
         };
         await ctx.render('wb/keywords.tpl', {
             userData
