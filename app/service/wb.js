@@ -5,7 +5,8 @@ class WbService extends Service {
     async getSum(uid) {
         const sql = `SELECT SUM(reposts_count) AS rc,
         SUM(comments_count) AS cc,
-        SUM(attitudes_count) AS ac
+        SUM(attitudes_count) AS ac,
+        SUM(LENGTH(text)) AS wl
         FROM wb WHERE uid = '${uid}'  AND LENGTH(created_at) != 10`
         const rs = await this.app.mysql.query(sql);
         return rs;

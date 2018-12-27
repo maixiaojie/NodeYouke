@@ -11,6 +11,7 @@ class WBController extends Controller {
         if (access_tokens && uids) {
             // 缺少验证token的有效性
             // await this.userTimeline(access_tokens, uids);
+            await this.share(access_tokens);
             const userinfo = await this.usersShow(access_tokens, uids);
             await this.saveUserInfo(uids, userinfo);
             var s1 = new Date(userinfo.created_at).getTime();
@@ -175,6 +176,7 @@ class WBController extends Controller {
             data.rcc = count[0].rc; // 微博被转发总数
             data.cc = count[0].cc; // 微博被评论总数
             data.ac = count[0].ac; // 微博被点赞总数
+            data.wl = count[0].wl; //发布微博总字数
             const userData = {
                 uid,
                 screen_name: userinfo.screen_name,
@@ -216,6 +218,7 @@ class WBController extends Controller {
             data.rcc = count[0].rc; // 微博被转发总数
             data.cc = count[0].cc; // 微博被评论总数
             data.ac = count[0].ac; // 微博被点赞总数
+            data.wl = count[0].wl; //发布微博总字数
             const userData = {
                 uid,
                 screen_name: userinfo.screen_name,
@@ -279,8 +282,7 @@ class WBController extends Controller {
         var url = `https://api.weibo.com/2/statuses/share.json?`;
         var params = {
             access_token,
-            status: encodeURIComponent('http://www.baidu.com/share/'),
-            rip: '106.12.202.229'
+            status: encodeURIComponent('啦啦啦， 快来看。http://yk.mcust.cn/detail/blogWFwkSDpxn4rh23ts4BZ629dsY7c08fHj2X1YlBcm0Bq8HiqSv5s5e773e4e0')
         };
         var qs = require('querystring');
         var ctx = this.ctx;
