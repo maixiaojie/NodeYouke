@@ -11,7 +11,7 @@ class WBController extends Controller {
         if (access_tokens && uids) {
             // 缺少验证token的有效性
             // await this.userTimeline(access_tokens, uids);
-            await this.share(access_tokens);
+            // await this.share(access_tokens);
             const userinfo = await this.usersShow(access_tokens, uids);
             await this.saveUserInfo(uids, userinfo);
             var s1 = new Date(userinfo.created_at).getTime();
@@ -147,11 +147,23 @@ class WBController extends Controller {
             userData
         });
     }
+    async getStatus() {
+        var ctx = this.ctx;
+        const uid = ctx.params.uid;
+        const splider =  await ctx.service.wb.getSpliderStatus(uid);
+        return ctx.body = {
+            success: 1,
+            data:splider
+        }
+    }
     async wbdata() {
         var ctx = this.ctx;
         const uid = ctx.params.uid;
         const wbcountData = await this.ctx.service.wb.getcount(uid);
         const wbcount = wbcountData[0].count;
+        const splider =  await ctx.service.wb.getSpliderStatus(uid);
+        const splider_status = splider.length > 0 ? splider[0].splider_status : 4;
+        // const splider_status = 4;
         if(wbcount == 0) {
             //数据抓取未完成 或者无数据 或者数据抓取失败
 
@@ -162,6 +174,7 @@ class WBController extends Controller {
             };
             await ctx.render('wb/data.tpl', {
                 userData,
+                splider_status,
                 wbcount
             });
         }else {
@@ -185,6 +198,7 @@ class WBController extends Controller {
             await ctx.render('wb/data.tpl', {
                 userData,
                 data,
+                splider_status,
                 wbcount
             });
         } 
@@ -282,6 +296,7 @@ class WBController extends Controller {
         var url = `https://api.weibo.com/2/statuses/share.json?`;
         var params = {
             access_token,
+            // rip: '106.12.202.229',
             status: encodeURIComponent('啦啦啦， 快来看。http://yk.mcust.cn/detail/blogWFwkSDpxn4rh23ts4BZ629dsY7c08fHj2X1YlBcm0Bq8HiqSv5s5e773e4e0')
         };
         var qs = require('querystring');

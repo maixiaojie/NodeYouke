@@ -11,6 +11,11 @@ class WbService extends Service {
         const rs = await this.app.mysql.query(sql);
         return rs;
     }
+    async getSpliderStatus(uid) {
+        const sql = `SELECT splider_status FROM wb_splider WHERE uid = '${uid}' ORDER BY ctime DESC LIMIT 1`;
+        const rs = await this.app.mysql.query(sql);
+        return rs;
+    }
     async getcount(uid) {
         const sql = `SELECT COUNT(*) AS count FROM wb WHERE uid = '${uid}' AND LENGTH(created_at) != 10`
         const rs = await this.app.mysql.query(sql);

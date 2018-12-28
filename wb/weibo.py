@@ -13,6 +13,7 @@ import re
 import math
 import MySQLdb
 import time
+import datetime
 import codecs
 from wordcount import *
 
@@ -47,11 +48,17 @@ class Weibo(object):
 		url = 'https://m.weibo.cn/api/container/getIndex?uid={}&type=uid&value={}&containerid=107603{}&page={}'.format(id,id,id,page)
 		response = requests.get(url)
 		ob_json = json.loads(response.text)
-		totalData = ob_json.get('data').get('cardlistInfo').get('total')
-		total_page = int(math.ceil(totalData / 10)) + 1
-		# print '一共' + str(total_page) + '页微博...'
-		# print '一共' + str(totalData) + '条微博...'
-		return total_page
+		status = ob_json.get('ok')
+		# print status
+		if status == 1:
+			totalData = ob_json.get('data').get('cardlistInfo').get('total')
+			total_page = int(math.ceil(totalData / 10)) + 1
+			print '一共' + str(total_page) + '页微博...'
+			print '一共' + str(totalData) + '条微博...'
+			return total_page
+		else:
+			# print '数据为空'
+			return 0
 
 	def get_weibo(self,id,page):
 		url = 'https://m.weibo.cn/api/container/getIndex?uid={}&type=uid&value={}&containerid=107603{}&page={}'.format(id,id,id,page)
@@ -102,6 +109,13 @@ class Weibo(object):
 		for i in range(total_sum):
 			list_cards = self.get_weibo(uid,i+1)
 			self.handle_cardlist(list_cards, uid)
+		
+		sql = 'insert into wb_splider(`uid`, `splider_status`, `ctime`) values(%s, %s, %s)'
+		dt = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+		if total_sum == 0:			
+			cursorWB.execute(sql, [uid, '3', dt])
+		else:
+			cursorWB.execute(sql, [uid, '2', dt])
 		dbWB.commit()
 		wordc = wordcount(uid)
 		wordc.main()

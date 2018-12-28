@@ -16,6 +16,7 @@ module.exports = app => {
   router.get('/user/:id', controller.user.detail);
 
   router.get('/wb', controller.wb.index);
+  router.get('/wb/getStatus/:uid', controller.wb.getStatus);
   router.get('/wbkeywords/:uid', controller.wb.keywords);
   router.get('/wbdata/:uid', controller.wb.wbdata);
   router.get('/wbdata2/:uid', controller.wb.wbdata2);
