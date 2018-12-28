@@ -1,6 +1,15 @@
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
-    <title>{{title}}</title>
+    <meta data-vue-meta="true" data-vmid="keywords" name="keywords" content="微博关键词,2018,微博词云"/>
+    <meta data-vue-meta="true" data-vmid="description" name="description" content="{{userData.screen_name}}的2018微博关键词"/>
+    <meta name="author" content="麦晓杰 | maixiaojie.github.io" />
+    <meta name="Copyright" content="Copyright (c) 2016-2019 yk.mcust.cn" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{userData.screen_name}}的2018微博词云">
+    <meta property="og:description" content="{{userData.screen_name}}的2018微博词云,更多内容请访问http:/yk.mcust.cn">
+    <meta property="og:image" content="http:/yk.mcust.cn/public/img/logo80.jpg">
+    <meta property="og:url" content="http:/yk.mcust.cn/wb">
+    <title>{{userData.screen_name}}的2018微博关键词</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/public/css/wbcommon.css" />
@@ -54,6 +63,9 @@
     </style>
 </head>
 <body>
+<div style ='margin:0 auto;width:0px;height:0px;overflow:hidden; '>
+<img src='/public/img/logo80.jpg'/>
+</div>
 <div class="title animated bounceIn">2018，你的微博关键词</div>
 <img class="keywordimg animated zoomIn"  src="/public/userimg/{{userData.uid}}.png" onerror="this.src='/public/img/nopic.jpg';this.onerror=null" />
 <p class="tips">tips:长按可以保存到手机</p>

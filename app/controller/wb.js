@@ -142,7 +142,7 @@ class WBController extends Controller {
     async keywords() {
         var ctx = this.ctx;
         const uid = ctx.params.uid;
-        console.log(uid)
+        // console.log(uid)
         const userData = {
             screen_name: '丶aNva丨',
             uid
@@ -212,7 +212,7 @@ class WBController extends Controller {
         const uid = ctx.params.uid;
         const wbcountData = await this.ctx.service.wb.getcount(uid);
         const wbcount = wbcountData[0].count;
-        console.log(wbcount)
+        // console.log(wbcount)
         if(wbcount == 0) {
             //数据抓取未完成 或者无数据 或者数据抓取失败
 
