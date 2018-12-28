@@ -59,7 +59,7 @@ class WBController extends Controller {
             const splider =  await ctx.service.wb.getSpliderStatus(uid);
             const splider_status = splider.length > 0 ? splider[0].splider_status : 4;
             if(wbcount == 0 && splider_status == 4) {
-                this.toGetWBdata(uid);
+                // this.toGetWBdata(uid);
             }
             ctx.redirect(`/wb?access_token=${access_token}&uid=${uid}`);
         } else {
