@@ -15,10 +15,20 @@ import MySQLdb
 import time
 import datetime
 import codecs
+import logging
 from wordcount import *
 
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
+
+mylogger = logging.getLogger('mylogger')
+mylogger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(filename)s- %(levelname)s - %(message)s')
+fh = logging.FileHandler('logout.log')
+fh.setLevel(logging.DEBUG)
+fh.setFormatter(formatter)
+
+mylogger.addHandler(fh)
 
 dbWB = MySQLdb.connect('140.143.163.52', 'root', 'wenyujie@123', 'mdblog',  charset='utf8')
 cursorWB = dbWB.cursor()
@@ -50,23 +60,36 @@ class Weibo(object):
 		ob_json = json.loads(response.text)
 		status = ob_json.get('ok')
 		# print status
+		mylogger.info(status)
+		sql = 'insert into wb_splider(`uid`, `splider_status`, `ctime`) values(%s, %s, %s)'
+		dt = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 		if status == 1:
 			totalData = ob_json.get('data').get('cardlistInfo').get('total')
 			total_page = int(math.ceil(totalData / 10)) + 1
-			print '一共' + str(total_page) + '页微博...'
-			print '一共' + str(totalData) + '条微博...'
+			# print '一共' + str(total_page) + '页微博...'
+			# print '一共' + str(totalData) + '条微博...'
+			mylogger.info(id + ' 一共' + str(total_page) + '页微博...')
+			mylogger.info(id + ' 一共' + str(totalData) + '条微博...')
+			cursorWB.execute(sql, [id, '0', dt])
+			# 开始爬取
+			dbWB.commit()
 			return total_page
 		else:
-			# print '数据为空'
+			cursorWB.execute(sql, [id, '3', dt])
+			# 数据为空
+			dbWB.commit()
+			mylogger.info(id + ' 用户的数据为空')
 			return 0
 
 	def get_weibo(self,id,page):
 		url = 'https://m.weibo.cn/api/container/getIndex?uid={}&type=uid&value={}&containerid=107603{}&page={}'.format(id,id,id,page)
 		response = requests.get(url)
 		# print '正在爬取...' + str(response.url)
+		mylogger.info(id + '正在爬取...' + str(response.url))
 		ob_json = json.loads(response.text)
 		list_cards = ob_json.get('data').get('cards')
 		# print '第' + str(page) + '页数据获取成功...'
+		mylogger.info(id + '第' + str(page) + '页数据获取成功...')
 		return list_cards
 
 	def write2file(self, data, filename):
@@ -98,6 +121,7 @@ class Weibo(object):
 						row_count = cursorWB.execute(sql, [id, uid, wb_id, pre_text, source, reposts_count, comments_count, attitudes_count, is_retweeted, created_at, text])
 					except BaseException as t:
 						# print t
+						mylogger.error(uid + ' ' + str(t))
 						print wb_id
 					finally:
 						pass
@@ -114,8 +138,10 @@ class Weibo(object):
 		dt = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 		if total_sum == 0:			
 			cursorWB.execute(sql, [uid, '3', dt])
+			mylogger.info(uid + ' total_sum = 0')
 		else:
 			cursorWB.execute(sql, [uid, '2', dt])
+			mylogger.info(uid + ' total_sum != 0')
 		dbWB.commit()
 		wordc = wordcount(uid)
 		wordc.main()

@@ -30,7 +30,9 @@ class WBController extends Controller {
             }
             const wbcountData = await ctx.service.wb.getcount(uids);
             const wbcount = wbcountData[0].count;
-            if(wbcount == 0) {
+            const splider =  await ctx.service.wb.getSpliderStatus(uids);
+            const splider_status = splider.length > 0 ? splider[0].splider_status : 4;
+            if(wbcount == 0 && splider_status == 4) {
                 this.toGetWBdata(uids);
             }
             await ctx.render('wb/day.tpl', {
@@ -54,7 +56,9 @@ class WBController extends Controller {
             const uid = res.uid;
             const wbcountData = await ctx.service.wb.getcount(uid);
             const wbcount = wbcountData[0].count;
-            if(wbcount == 0) {
+            const splider =  await ctx.service.wb.getSpliderStatus(uid);
+            const splider_status = splider.length > 0 ? splider[0].splider_status : 4;
+            if(wbcount == 0 && splider_status == 4) {
                 this.toGetWBdata(uid);
             }
             ctx.redirect(`/wb?access_token=${access_token}&uid=${uid}`);

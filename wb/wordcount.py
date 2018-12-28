@@ -12,7 +12,7 @@ from wordcloud import WordCloud
 from PIL import Image
 import numpy as np
 import codecs
-import weibo as wb
+# import weibo as wb
 import service
 import readdict as Dict
 
@@ -53,9 +53,9 @@ class wordcount(object):
 			print '计算完成，图片生成中..'
 			self.word_cloud(dict(b), self.uid)
 		else:
-			print '没有数据,正在重新获取数据'
-			wb_instance = wb.Weibo()
-			wb_instance.main(self.uid)
+			print '没有数据'
+			# wb_instance = wb.Weibo()
+			# wb_instance.main(self.uid)
 
 	def word_cloud(self, text, uid):
 		font = './font/baiduzong.ttf'

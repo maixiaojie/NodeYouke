@@ -12,3 +12,6 @@ run/
 *.un~
 wb/userdata/
 wb/userimg/
+app/public/userimg/
+wb/logout.log
+wb/*.py*

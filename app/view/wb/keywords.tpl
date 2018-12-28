@@ -55,7 +55,7 @@
 </head>
 <body>
 <div class="title animated bounceIn">2018，你的微博关键词</div>
-<img class="keywordimg animated zoomIn" src="/public/userimg/{{userData.uid}}.png" />
+<img class="keywordimg animated zoomIn"  src="/public/userimg/{{userData.uid}}.png" onerror="this.src='/public/img/nopic.jpg';this.onerror=null" />
 <p class="tips">tips:长按可以保存到手机</p>
 </body>
 <script src="/public/js/common.js"></script>

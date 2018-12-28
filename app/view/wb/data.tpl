@@ -37,7 +37,7 @@
 {% if splider_status == 3 %}
 <p class="ct animated bounceInLeft">亲爱的 {{userData.screen_name}} , 您今年貌似没有发微博哦~</p>
 <p class="ct animated bounceInRight">希望2019，每一天都开心∩﹏∩！</p>
-{% elif splider_status == 4  %}
+{% elif ( splider_status == 4 or splider_status == 0 ) %}
     <div class='base'>
         <div class='cube'></div>
         <div class='cube'></div>
@@ -121,7 +121,7 @@ var getStatus = function() {
 }
 $(document).ready(function() {
    var splider_status = $('.top').attr('status');
-   if(splider_status == 4) {
+   if(splider_status == 4 || splider_status == 0) {
        timer = setInterval(function() {
             getStatus()
         },  1500)
