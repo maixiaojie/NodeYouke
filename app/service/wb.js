@@ -12,7 +12,7 @@ class WbService extends Service {
         return rs;
     }
     async getSpliderStatus(uid) {
-        const sql = `SELECT splider_status FROM wb_splider WHERE uid = '${uid}' ORDER BY ctime DESC LIMIT 1`;
+        const sql = `SELECT splider_status FROM wb_splider WHERE uid = '${uid}' ORDER BY ctime DESC, id DESC LIMIT 1`;
         const rs = await this.app.mysql.query(sql);
         return rs;
     }
