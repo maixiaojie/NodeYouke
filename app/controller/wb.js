@@ -142,6 +142,7 @@ class WBController extends Controller {
     async keywords() {
         var ctx = this.ctx;
         const uid = ctx.params.uid;
+        const userData = await ctx.service.wb.getcount(uid);
         // console.log(uid)
         const userData = {
             screen_name: '丶aNva丨',
