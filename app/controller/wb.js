@@ -146,10 +146,10 @@ class WBController extends Controller {
             id: uid
         });
         // console.log(uid)
-        const userData = {
-            screen_name: '丶aNva丨',
-            uid
-        };
+        // const userData = {
+        //     screen_name: '丶aNva丨',
+        //     uid
+        // };
         await ctx.render('wb/keywords.tpl', {
             userData
         });
