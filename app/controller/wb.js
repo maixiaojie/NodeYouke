@@ -151,7 +151,8 @@ class WBController extends Controller {
         //     uid
         // };
         await ctx.render('wb/keywords.tpl', {
-            userData
+            userData,
+            uid
         });
     }
     async getStatus() {
