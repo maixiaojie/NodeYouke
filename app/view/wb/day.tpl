@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="/public/css/animate.css" />
     <style>
         body {
-            {# background: url('/public/assets/1.png') no-repeat;
-            background-size: cover; #}
-            background-image: linear-gradient(44deg, #30CFD0 0%, #330867 100%);
+            background: url('/public/assets/1.png') no-repeat;
+            background-size: cover;
+            {# background-image: linear-gradient(44deg, #30CFD0 0%, #330867 100%); #}
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
         .name { 
-            margin-top: 12%;
+            margin-top: 22%;
         }
         .bottom {
             width: 100%;
@@ -62,18 +62,26 @@
 </p>
 <p class="ct animated bounceInUp" style="text-align: right;">-- by 某某某
 </p>
+<div class="lb">
+    <img src="/public/img/lb.png">
+    <p data-html2canvas-ignore="true">Tips:长按图片可以保存</p>
+</div>
+<div class="titleLogo">
+    <img src="/public/img/title.png">
+</div>
 {# <p class="content">今天是我在微博的第<span>{{userData.days}}</span>天</p>
 <p class="content">我在<span class="small">{{userData.create_at }}</span>这个时候注册了微博，</p>
 <p class="content">到现在为止，我关注了<span class="middle">{{userData.friends_count}}</span>人， 共有<span class="middle">{{userData.followers_count}}</span>人关注了我。</p> #}
 {# <p class="keywords"><a href="/wbkeywords/{{userData.uid}}">点击获取我的微博关键词</a></p> #}
 {# <p class="keywords"><a href="/wbdata/{{userData.uid}}">点击查看下一页</a></p> #}
 <div class="bottom"></div>
-<div class="nextcontainer">
+<div class="nextcontainer" data-html2canvas-ignore="true">
     <a class="animated infinite pulse delay-2s" href="/wbdata/{{userData.uid}}"><img src="/public/assets/Path.png" />next</a>
 </div>
 {# <p class="intro">©flying工作室 pord by <a href="https://m.weibo.cn/u/2401890571">@丶aNva丨</a></p> #}
 </body>
-<script src="/public/js/common.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="/public/js/wbcommon.js"></script>
 <script>
 </script>
 </html>

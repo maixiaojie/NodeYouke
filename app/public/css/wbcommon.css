@@ -129,3 +129,42 @@ html, body {
       transform: translateZ(0.5em);
     }
   }
+
+  .lb {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    width: 150px;
+    z-index: 1;
+  }
+  .titleLogo {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    width: 150px;
+    z-index: 1;
+  }
+  .titleLogo img {
+    width: 150px;
+    max-width: 150px;
+  }
+  .lb img {
+    width: 150px;
+    max-width: 150px;
+  }
+  .lb p {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    font-family: PingFangSC-Regular;
+    letter-spacing: 0.1rem;
+  }
+  .saveimg {
+    position: absolute;
+    left:0 ;
+    top: 0;
+    opacity: 0;
+}

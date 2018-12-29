@@ -23,13 +23,14 @@
             {# background:#fff; #}
         }
         .title {
-            width:100%;
+            width: 95%;
             font-family: PingFangSC-Regular;
-            font-size: 22px;
+            font-size: 18px;
             color: #FFFFFF;
-            text-align: center;
+            text-align: right;
             height:6rem;
-            margin-top: 9%;
+            padding-right:2%;
+            {# margin-top: 2%; #}
             {# background: #fe8100; #}
             {# background:#00D0CF; #}
             line-height: 6rem;
@@ -39,7 +40,8 @@
             margin: 5%;
             padding: 28px;
             background: rgba(255, 255, 255, 0.5);
-            margin-top: 0;
+            margin-top: 2%;
+            margin-bottom:2%;
         }
         .tips {
             text-align:center;
@@ -48,6 +50,13 @@
             {# background:#fff; #}
             margin: 0;
             padding: 10px 0;
+        }
+        .titleLogo {
+            position: absolute;
+            left: 2%;
+            top: 0;
+            width: 150px;
+            z-index: 0;
         }
         @media screen and (min-width: 780px) {
             body {
@@ -68,9 +77,17 @@
 </div>
 <div class="title animated bounceIn">2018，你的微博关键词</div>
 <img class="keywordimg animated zoomIn"  src="/public/userimg/{{userData.uid}}.png" onerror="this.src='/public/img/nopic.jpg';this.onerror=null" />
-<p class="tips">tips:长按可以保存到手机</p>
+
+<div class="lb">
+    <img src="/public/img/lb.png">
+    <p data-html2canvas-ignore="true">Tips:长按图片可以保存</p>
+</div>
+<div class="titleLogo">
+    <img src="/public/img/title.png">
+</div>
 </body>
-<script src="/public/js/common.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="/public/js/wbcommon.js"></script>
 <script>
 </script>
 </html>

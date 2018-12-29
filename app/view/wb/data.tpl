@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="/public/css/animate.css" />
     <style>
         body {
-            {# background: url('/public/assets/2.png') no-repeat;
-            background-size: cover; #}
-            background-image: linear-gradient(44deg, #F46287 0%, #011CC5 100%);
+            background: url('/public/assets/2.png') no-repeat;
+            background-size: cover;
+            {# background-image: linear-gradient(44deg, #F46287, #011CC5); #}
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
+        
         .top {
             width: 86%;
             margin: 20px 7%;
@@ -43,7 +44,7 @@
 </head>
 <body>
 <div style ='margin:0 auto;width:0px;height:0px;overflow:hidden; '>
-<img src='/public/img/logo80.jpg'/>
+    <img src='/public/img/logo80.jpg'/>
 </div>
 <div class="top" uid="{{userData.uid}}" status="{{splider_status}}"></div>
 {% if splider_status == 3 %}
@@ -76,8 +77,15 @@
     <p class="ct animated bounceInLeft">累计字数共  {{data.wl}} 字</p>
     <p class="ct animated bounceInRight">其中，转发 {{data.rc}} 条</p>
     <p class="ct animated bounceInLeft" style="padding-left: 3em;">原创 {{data.ycc}} 条</p>
-    <div class="nextcontainer">
+    <div class="nextcontainer" data-html2canvas-ignore="true">
         <a class="animated infinite pulse delay-2s" href="/wbdata2/{{userData.uid}}"><img src="/public/assets/Path.png" />next</a>
+    </div>
+    <div class="lb">
+        <img src="/public/img/lb.png">
+        <p data-html2canvas-ignore="true">Tips:长按图片可以保存</p>
+    </div>
+    <div class="titleLogo">
+        <img src="/public/img/title.png">
     </div>
     {% endif  %}
 {% endif  %}
@@ -85,7 +93,12 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/public/js/js-cookies.js"></script>
-<script src="/public/js/common.js"></script>
+{# <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script> #}
+{# <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta3/html2canvas.min.js"></script> #}
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+{# <script src="https://cdn.bootcss.com/html2canvas/0.5.0-alpha2/html2canvas.js"></script> #}
+{# <script src="https://cdn.bootcss.com/html2canvas/0.5.0-alpha1/html2canvas.min.js"></script> #}
+<script src="/public/js/wbcommon.js"></script>
 <script>
 var timer = null;
 var i = 0;
@@ -131,15 +144,15 @@ var getStatus = function() {
         }
     });
 }
+
 $(document).ready(function() {
-   var splider_status = $('.top').attr('status');
-   if(splider_status == 4 || splider_status == 0) {
+    //var vConsole = new VConsole();
+    var splider_status = $('.top').attr('status');
+    if(splider_status == 4 || splider_status == 0) {
        timer = setInterval(function() {
             getStatus()
         },  1500)
-   }
-    
-    
+    }  
 })
 </script>
 </html>

@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="/public/css/animate.css" />
     <style>
         body {
-            {# background: url('/public/assets/3.png') no-repeat;
-            background-size: cover; #}
-            background-image: linear-gradient(44deg, #FECFA9 0%, #FD7189 100%);
+            background: url('/public/assets/3.png') no-repeat;
+            background-size: cover;
+            {# background-image: linear-gradient(44deg, #FECFA9 0%, #FD7189 100%); #}
             font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
         }
         .bottom {
@@ -53,11 +53,19 @@
 <p class="ct animated bounceInLeft">获得点赞 {{data.ac}} 次</p>
 <p class="ct animated bounceInRight">收到评论 {{data.cc}} 次</p>
 <div class="bottom"></div>
-<div class="nextcontainer">
+<div class="nextcontainer" data-html2canvas-ignore="true">
     <a class="animated infinite pulse delay-2s" href="/wbkeywords/{{userData.uid}}"><img src="/public/assets/Path.png" />next</a>
 </div>
+<div class="lb">
+    <img src="/public/img/lb.png">
+    <p data-html2canvas-ignore="true">Tips:长按图片可以保存</p>
+</div>
+<div class="titleLogo">
+    <img src="/public/img/title.png">
+</div>
 </body>
-<script src="/public/js/common.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="/public/js/wbcommon.js"></script>
 <script>
 </script>
 </html>
