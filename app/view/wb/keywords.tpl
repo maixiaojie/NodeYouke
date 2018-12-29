@@ -76,7 +76,7 @@
 <img src='/public/img/logo80.jpg'/>
 </div>
 <div class="title animated bounceIn">2018，你的微博关键词</div>
-<img class="keywordimg animated zoomIn"  src="/public/userimg/{{userData.uid}}.png" onerror="this.src='/public/img/nopic.jpg';this.onerror=null" />
+<img class="keywordimg animated zoomIn"  src="/public/userimg/{{userData.id}}.png" onerror="this.src='/public/img/nopic.jpg';this.onerror=null" />
 
 <div class="lb">
     <img src="/public/img/lb.png">
