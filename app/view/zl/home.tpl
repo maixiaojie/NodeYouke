@@ -83,5 +83,5 @@
         </section>
     </section>
 </body>
-{# <script src="/public/js/common.js"></script> #}
+<script src="/public/js/common.js"></script>
 </html>
