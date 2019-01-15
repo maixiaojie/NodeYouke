@@ -114,12 +114,12 @@
                 </div>
                 <div class="form-group">
                     <div class="mini-player">
-                        <a href="javascript:;" class="btn-play"></a>
+                        <a href="javascript:;" id="audioControl" class="btn-play"></a>
                         <div class="audio-info">
                             <h3>{{data.article_title}}</h3>
                             <p><span>朗读人：winter&nbsp;&nbsp;&nbsp;</span> <span>{{data.audio_time}} | {{data.audio_size}}b</span></p>
                         </div>
-                        <audio title="{{data.article_title}}" autoplay src="{{data.audio_url}}"></audio>
+                        <audio title="{{data.article_title}}" id="audio" preload src="{{data.audio_download_url}}"></audio>
                     </div>
                 </div>
                 <div class="form-group markdown-body">
@@ -136,62 +136,22 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/caret/1.0.0/jquery.caret.min.js"></script>
 <script src="/public/js/js-cookies.js"></script>
-<script src="/public/js/jqcloud.min.js"></script>
 <script>
 $(document).ready(function() {
-    function wordCloud(word_array) {
-        $('#word-cloud').jQCloud(word_array);
-    }
-    var csrftoken = Cookies.get('csrfToken');
-    var blog_id = $('#relatives').attr('blog_id');
-    function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-    $.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-        xhr.setRequestHeader('x-csrf-token', csrftoken);
+    $('#audioControl').on('click', function() {
+        var audio = document.getElementById('audio'); 
+        if(audio!==null){
+            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+            //alert(audio.paused);
         }
-    },
-    });
-    $.ajax({
-        url: '/blogAnalysis/'+blog_id,
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        // 告诉jQuery不要去设置Content-Type请求头
-        contentType: false,
-        // 告诉jQuery不要去处理发送的数据
-        processData: false,
-        success: function(res) {
-            console.log(res)
-            if(res.success && res.data != null) {
-                try {
-                    var keywords = JSON.parse(res.data.keyword).items;
-                    var len = keywords.length;
-                    if(len > 0) {
-                        keywords.map(function(item) {
-                            item.text = item.tag;
-                            item.weight = item.score*100;
-                            item.html = {title: item.score};
-                            return item;
-                        });
-                        wordCloud(keywords);
-                        $('#word-cloud').append('<span class="cloudTitle">人工智能自动分类标签结果：<span>');
-                    }
-
-                }catch(e) {
-                    $('#word-cloud').hide();
-                    console.log(e);
-                }
-            }else {
-                $('#word-cloud').hide();
-                console.log('无数据');
-            }
+        if(audio.paused){                 
+            audio.play();//audio.play();// 这个就是播放  
+            $('#audioControl').removeClass('btn-play').addClass('btn-pause');
+        }else{
+        audio.pause();// 这个就是暂停
+        $('#audioControl').removeClass('btn-pause').addClass('btn-play');
         }
-    });
+    })
 })
 </script>
 </html>
