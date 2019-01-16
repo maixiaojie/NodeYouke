@@ -16,7 +16,11 @@
 </head>
 <body>
     <nav class="main">
-        <div class="container"><a href="/" class="brand" title="悠客 - 另外一个帮助开发者成长的社区">悠客 Lite</a> <span></span>
+        <div class="container">
+            <a href="/" class="brand" title="悠客 - 另外一个帮助开发者成长的社区">悠客 Lite</a> <span></span>
+            <ul class="menu">
+                <li><a href="/zl" class="brand" title="悠客专栏">悠客专栏</a></li>
+            </ul>
             <div class="login-info">
             {% if userinfo %}
                 <div class="hasLogin">
