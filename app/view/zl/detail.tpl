@@ -1,11 +1,11 @@
 <!-悠客 ->
 <html>
 <head>
-    <meta data-vue-meta="true" data-vmid="keywords" name="keywords" content="悠客,麦晓杰,开发者,{{ data.tags }}"/>
+    <meta data-vue-meta="true" data-vmid="keywords" name="keywords" content="悠客,麦晓杰,开发者专栏"/>
     <meta data-vue-meta="true" data-vmid="description" name="description" content="悠客是另外一个帮助开发者成长的社区，是给开发者用的 Hacker News，给设计师用的 Designer News，和给产品经理用的 Medium。悠客的技术文章由技术大牛和极客共同编辑为你筛选出最优质的干货，其中包括：Android、iOS、前端、后端等方面的内容。用户每天都可以在这里找到技术世界的头条内容。即使你是 GitHub、StackOverflow、开源中国的用户，我们相信你也可以在这里有所收获。"/>
     <meta name="author" content="麦晓杰 | maixiaojie.github.io" />
     <meta name="Copyright" content="Copyright (c) 2016-2019 yk.mcust.cn" />
-    <title>{{data.title}} - 悠客</title>
+    <title>{{data.article_title}} - 悠客专栏</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">    
     <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css" rel="stylesheet">
@@ -101,32 +101,42 @@
 </head>
 <body>
     <nav class="main">
-        <div class="container"><a href="/zl" title="悠客 - 另外一个帮助开发者成长的社区" class="brand">悠客专栏 Lite</a> <span></span></div>
+        <div class="container"><a href="/zl" title="悠客专栏 - 另外一个帮助开发者成长的社区" class="brand">悠客专栏 Lite</a> <span></span></div>
     </nav>
     <section class="mainBody">
         <section class="formBody">
             <div class="detail shadow">
                 <div class="form-group">
+                    <a href="/zl" title="悠客专栏 - 另外一个帮助开发者成长的社区" class="brand">悠客专栏</a> >
+                    <a href="/al/{{zhuanlan.id}}" title="悠客专栏 - {{zhuanlan.title}}" class="brand">{{zhuanlan.title}}</a> >
+                    文章详情
+                </div>
+                <div class="form-group">
                     <h1 class="article-title">{{data.article_title}}</h1>
+                </div>
+                <div class="form-group">
+                    <span>阅读 {{data.view_number}}</span>
                 </div>
                 <div class="form-group">
                     <img src="{{data.article_cover}}" class="article-img">
                 </div>
+                {% if data.audio_download_url %}
                 <div class="form-group">
                     <div class="mini-player">
                         <a href="javascript:;" id="audioControl" class="btn-play"></a>
                         <div class="audio-info">
                             <h3>{{data.article_title}}</h3>
-                            <p><span>朗读人：winter&nbsp;&nbsp;&nbsp;</span> <span>{{data.audio_time}} | {{data.audio_size}}b</span></p>
+                            <p><span>朗读人：XXX &nbsp;&nbsp;&nbsp;</span> <span>{{data.audio_time}} | {{data.audio_size}}b</span></p>
                         </div>
                         <audio title="{{data.article_title}}" id="audio" preload src="{{data.audio_download_url}}"></audio>
                     </div>
                 </div>
+                {% else %}
+                {% endif %}
                 <div class="form-group markdown-body">
                     {{data.mdhtml | safe}}
                 </div>
                 <div class="form-group">
-                    <div class="word-cloud" id="word-cloud" style="width:100%; height:180px;border-top: 1px solid #eaecef;"></div>
                 </div>
             </div>            
         </section>

@@ -25,7 +25,11 @@
         <div class="form-group">
             <input type="text" id="intro" class="input" placeholder="摘要" />
         </div>
-        
+        <div class="form-group">
+            是否已更新完：
+            <label>是<input type="radio" name="isfineshed" checked value="1" id="" class="" placeholder="" /></label>
+            <label>否<input type="radio" name="isfineshed" id="0" class="" placeholder="" /></label>
+        </div>
         <div class="form-group">
             <textarea  id="tags" style="display:none;" placeholder="标签：" ></textarea>
         </div>
@@ -51,6 +55,7 @@
                 author: $('#author').val(),
                 cover: $('#cover').val(),
                 intro: $('#intro').val(),
+                status: $('input[name="isfineshed"]').val(),
                 tags: $('#tags').tagEditor('getTags')[0].tags.join(',')
             }
            var csrftoken = Cookies.get('csrfToken');

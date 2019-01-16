@@ -14,29 +14,24 @@
     <link rel="stylesheet" href="/public/css/home.css" />
     <link rel="stylesheet" href="/public/css/zl/home.css" />
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .status {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <nav class="main">
         <div class="container"><a href="/zl" class="brand" title="悠客 - 另外一个帮助开发者成长的社区">悠客专栏 Lite</a> <span></span>
             <div class="login-info">
-            {% if userinfo %}
-                <div class="hasLogin">
-                    <a href=""><i class="mr5 fa fa-user" aria-hidden="true"></i><span class="mr5">{{ userinfo.name }}</span><img src="{{userinfo.photo}}" /></a>
-                    <a href="/add"><i class="mr5 fa fa-pencil-square-o" aria-hidden="true"></i>写文章</a>
-                    <a href="/logout"><i class="mr5 fa fa-sign-out" aria-hidden="true"></i>退出</a>
-                </div>
-            {% else %}
-                <div class="toLogin">
-                    <a href="/passport/github"><i class="fa fa-github mr5"></i>登录</a>
-                </div>
-            {% endif %}
+            
             <div>
         </div>
     </nav>
     <section class="body">
         <section class="blocks">
             <div class="zl">
-                <h2>{{zl_info.title}}</h2>
+                <h2>{{zl_info.title}} <span class="status">({% if zl_info.status == 1 %}已完结 {% else %}同步更新中 {% endif %})</span></h2>
                 <a class="new" href="/newarticle/{{zl_info.id}}">new</a>
             </div>
             <ul class="article-list">

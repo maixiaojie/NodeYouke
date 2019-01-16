@@ -19,17 +19,6 @@
     <nav class="main">
         <div class="container"><a href="/zl" class="brand" title="悠客 - 另外一个帮助开发者成长的社区">悠客专栏 Lite</a> <span></span>
             <div class="login-info">
-            {% if userinfo %}
-                <div class="hasLogin">
-                    <a href=""><i class="mr5 fa fa-user" aria-hidden="true"></i><span class="mr5">{{ userinfo.name }}</span><img src="{{userinfo.photo}}" /></a>
-                    <a href="/add"><i class="mr5 fa fa-pencil-square-o" aria-hidden="true"></i>写文章</a>
-                    <a href="/logout"><i class="mr5 fa fa-sign-out" aria-hidden="true"></i>退出</a>
-                </div>
-            {% else %}
-                <div class="toLogin">
-                    <a href="/passport/github"><i class="fa fa-github mr5"></i>登录</a>
-                </div>
-            {% endif %}
             <div>
         </div>
     </nav>
@@ -47,7 +36,7 @@
                     </div>
                     <div class="goods-info">
                         <h6>{{item.title}}</h6>
-                        <p>aaa</p>
+                        <p>状态：<span>{% if item.status == 1 %} 已完结 {% else %} 同步更新中 {% endif %} </span></p>
                     </div>
                     <div class="other-info">
                         <p>作者：{{item.author}}</p>
@@ -69,7 +58,7 @@
                         <h6>{{item.title}}</h6>
                         <div class="operate">
                             <div class="other-info">
-                                <p>作者：{{item.author}}</p>
+                                <p>作者：{{item.author}} |  状态：<span>{% if item.status == 1 %}已完结 {% else %}同步更新中 {% endif %}</span></p>
                                 <p>{{item.intro}}</p>
                             </div>
                             <div class="btn-warpper">

@@ -58,11 +58,13 @@ class LanmuController extends Controller {
     }
     async detail() {
         const id = this.ctx.params.id;
+        await this.ctx.service.zl.updateRead(id);
         const article = await this.ctx.service.zl.oneArticle(id);
-        console.log(article)
+        const zhuanlan = await this.ctx.service.zl.one(article.pid);
         await this.ctx.render('zl/detail.tpl', {
             title: '添加文章',
-            data: article
+            data: article,
+            zhuanlan
         });
     }
 }
