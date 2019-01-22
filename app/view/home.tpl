@@ -22,6 +22,11 @@
             height: 200px;
         }
     }
+    @media (max-width: 1080px){
+        .body {
+            padding: 0 0 25px 0 !important;
+        }
+    }
     @media (min-width: 1080px) {
         .swiper-container {
             width: 100%;
