@@ -32,7 +32,7 @@
         <section class="blocks">
             <div class="zl">
                 <h2>{{zl_info.title}} <span class="status">({% if zl_info.status == 1 %}已完结 {% else %}同步更新中 {% endif %})</span></h2>
-                <a class="new" href="/newarticle/{{zl_info.id}}">new</a>
+                <a style="display:none;" class="new" href="/newarticle/{{zl_info.id}}">new</a>
             </div>
             <ul class="article-list">
                 {% for item in articles %}
