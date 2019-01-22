@@ -12,7 +12,28 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/public/css/common.css" />
     <link rel="stylesheet" href="/public/css/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+    
+    @media (max-width: 1080px) {
+        .swiper-container {
+            width: 100%;
+            height: 200px;
+        }
+    }
+    @media (min-width: 1080px) {
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+        }
+    }
+    .swiper-container img {
+        min-width: 100%;
+        max-width: 100%;
+        height: 100%;
+    }
+    </style>
 </head>
 <body>
     <nav class="main">
@@ -36,8 +57,20 @@
             <div>
         </div>
     </nav>
-    <section class="body">
+    <section class="body">        
         <section class="blocks">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="/zl" class="brand" title="悠客专栏"><img src="/public/banner/banner01.png"></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/zl" class="brand" title="悠客专栏"><img src="/public/banner/banner02.png"></a>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
             <div class="tags">
                 {% for item in tags %}
                 <span class="tag bg{{ helper.rd(1, 9) }}"><a href="/?keyword={{item.tag}}" title="{{item.tag}}">{{ item.tag }} <font>{{ item.count }} </font></a></span>
@@ -67,5 +100,18 @@
         </section>
     </section>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
 <script src="/public/js/common.js"></script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay: true,
+    
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    }
+  })        
+  </script>
 </html>
