@@ -17,10 +17,15 @@ class ZlService extends Service {
       const rs = await this.app.mysql.get('zhuanlan', {id});
       return rs;
   }
-  async listArticle(page = 1, id) {
+  async listArticle(page = 1, id, order=0) {
     const limit = 100;
     const offset = (page-1)*limit;
-    const sql = 'SELECT id, pid,article_title,article_cover FROM article where pid = ? ORDER BY ctime DESC LIMIT ? OFFSET ?';
+    var sql = '';
+    if(order == 1) {
+      sql = 'SELECT id, pid,article_title,article_cover FROM article where pid = ? ORDER BY ctime DESC LIMIT ? OFFSET ?';
+    }else {
+      sql = 'SELECT id, pid,article_title,article_cover FROM article where pid = ? ORDER BY ctime ASC LIMIT ? OFFSET ?';
+    }
     const rs = await this.app.mysql.query(sql, [id, limit, offset]);
     return rs;
 }

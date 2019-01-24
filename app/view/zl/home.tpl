@@ -45,7 +45,7 @@
                         <p>{{item.intro}}</p>
                     </div>
                     <div class="btn-warpper">
-                        <a class="btn" href="/al/{{item.id}}">开始学习<i class="ml5 fa fa-arrow-right"></i></a>
+                        <a class="btn" href="/al/{{item.id}}/0">开始学习<i class="ml5 fa fa-arrow-right"></i></a>
                     </div>
                 </li>
                 {% endfor %}
@@ -64,7 +64,7 @@
                                 <p>{{item.intro}}</p>
                             </div>
                             <div class="btn-warpper">
-                                <a class="btn" href="/al/{{item.id}}">开始学习<i class="ml5 fa fa-arrow-right"></i></a>
+                                <a class="btn" href="/al/{{item.id}}/0">开始学习<i class="ml5 fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

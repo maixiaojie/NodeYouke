@@ -26,7 +26,7 @@ module.exports = app => {
   router.get('/zl', controller.lanmu.index);
   router.get('/addzl', controller.lanmu.add);
   router.post('/zl/newzl', controller.lanmu.newzl);
-  router.get('/al/:id', controller.lanmu.article_list);
+  router.get('/al/:id/:order', controller.lanmu.article_list);
   router.get('/newarticle/:pid', controller.lanmu.newarticle);
   router.post('/zl/newarticle', controller.lanmu.newArticle);
   router.get('/zl/detail/:id', controller.lanmu.detail);

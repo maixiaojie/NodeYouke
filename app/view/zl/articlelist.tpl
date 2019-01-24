@@ -18,6 +18,22 @@
         .status {
             font-size: 16px;
         }
+        .order {
+            padding-left: 12px;
+            margin: 12px 0;
+        }
+        .order a {
+            color: #888;
+        }
+        .order span {
+            color: #888;
+            font-size: 14px;
+            margin-left: 8px;
+            padding-left: 8px;
+            border-left-width: 1px;
+            border-left-color: #d9d9d9;
+            border-left-style: solid;
+        }
     </style>
 </head>
 <body>
@@ -35,6 +51,13 @@
                 <a style="display:none;" class="new" href="/newarticle/{{zl_info.id}}">new</a>
             </div>
             <ul class="article-list">
+                <p class="order">
+                    {% if order == 1 %}
+                    <a href="/al/{{zl_info.id}}/0"><i class="mr5 fa fa-long-arrow-down"></i>正序</a>
+                    {% else %}
+                    <a href="/al/{{zl_info.id}}/1"><i class="mr5 fa fa-long-arrow-up"></i>倒序</a>
+                    {% endif %}
+                    <span>已经更新{{articles.length}}篇</span></p>
                 {% for item in articles %}
                 <li class="article">
                 <a href="/zl/detail/{{item.id}}">

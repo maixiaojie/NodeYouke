@@ -31,11 +31,13 @@ class LanmuController extends Controller {
     }
     async article_list() {
         const id = this.ctx.params.id;
+        const order = this.ctx.params.order;
         const zl_info = await this.ctx.service.zl.one(id);
-        const articles = await this.ctx.service.zl.listArticle(1, id);
+        const articles = await this.ctx.service.zl.listArticle(1, id, order);
         await this.ctx.render('zl/articlelist.tpl', {
             zl_info,
-            articles
+            articles,
+            order
         });
     }
     async newarticle() {
