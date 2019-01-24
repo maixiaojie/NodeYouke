@@ -31,6 +31,7 @@
                 <a style="display:none;" class="new" href="/addzl">new</a>
             </div>
             <ul class="goods-list">
+                <p style="color: #ec4d17;font-weight: bold;">别忘记收藏！！每天进步一点点，人生将迈进一大步！</p>
                 {% for item in zl %}
                 <li class="goods">
                     <div class="goods-img">
@@ -51,6 +52,7 @@
                 {% endfor %}
             </ul>
             <ul class="mb-goods-list">
+                <p style="color: #ec4d17;font-weight: bold;">别忘记收藏！！每天进步一点点，人生将迈进一大步！</p>
                 {% for item in zl %}
                 <li>
                     <div class="mb-goods-img">
