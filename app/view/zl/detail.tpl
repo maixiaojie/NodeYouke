@@ -108,7 +108,7 @@
             <div class="detail shadow">
                 <div class="form-group">
                     <a href="/zl" title="悠客专栏 - 另外一个帮助开发者成长的社区" class="brand">悠客专栏</a> >
-                    <a href="/al/{{zhuanlan.id}}" title="悠客专栏 - {{zhuanlan.title}}" class="brand">{{zhuanlan.title}}</a> >
+                    <a href="/al/{{zhuanlan.id}}/0" title="悠客专栏 - {{zhuanlan.title}}" class="brand">{{zhuanlan.title}}</a> >
                     文章详情
                 </div>
                 <div class="form-group">
@@ -136,7 +136,8 @@
                 <div class="form-group markdown-body">
                     {{data.mdhtml | safe}}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="text-align:center;">
+                    <img src="/public/img/ds.png" class="article-img">
                 </div>
             </div>            
         </section>

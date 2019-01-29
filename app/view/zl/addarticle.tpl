@@ -107,7 +107,7 @@
                 success: function(res) {
                     console.log(res)
                     if(res.success) {
-                        window.location.href = "/al/"+form.pid;
+                        window.location.href = "/al/"+form.pid+'/0';
                     }else {
                         alert('添加失败');
                     }
