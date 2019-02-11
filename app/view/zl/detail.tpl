@@ -97,6 +97,9 @@
             width: 100%;
             background-color: #eee;
         }
+        .markdown-body video {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
