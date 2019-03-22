@@ -97,7 +97,7 @@
             width: 100%;
             background-color: #eee;
         }
-        .markdown-body video {
+        .markdown-body video,.markdown-body img {
             max-width: 100%;
         }
     </style>
