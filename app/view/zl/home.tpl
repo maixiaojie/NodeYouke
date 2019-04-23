@@ -20,7 +20,9 @@
 <body>
     <nav class="main">
         <div class="container"><a href="/zl" class="brand" title="悠客 - 另外一个帮助开发者成长的社区">悠客专栏 Lite</a> <span></span>
-            <div class="login-info">
+            <a href="/" target="_blank" class="brand" style="font-size: 18px;color: #666;margin-left: 20px;" title="悠客 - 另外一个帮助开发者成长的社区">悠客 Lite</a>
+            <a href="https://blog.mcust.cn/" target="_blank" class="brand" style="font-size: 18px;color: #666;margin-left: 20px;" title="麦晓杰的博客">博客</a>
+<div class="login-info">
             <div>
         </div>
     </nav>
@@ -31,7 +33,9 @@
                 <a style="display:none;" class="new" href="/addzl">new</a>
             </div>
             <ul class="goods-list">
+                <p style="color: #ec4d17;font-weight: bold;font-size: 26px;">微信小程序“悠客社区”已经上线，同步更新更多精彩的内容，请多多关注！</p>
                 <p style="color: #ec4d17;font-weight: bold;">别忘记收藏！！每天进步一点点，人生将迈进一大步！</p>
+                <p style="color: #ec4d17;font-weight: bold;">有任何的意见建议，都可以去博客或者github联系我哟！</p>
                 {% for item in zl %}
                 <li class="goods">
                     <div class="goods-img">
@@ -52,7 +56,9 @@
                 {% endfor %}
             </ul>
             <ul class="mb-goods-list">
+                <p style="color: #ec4d17;font-weight: bold;font-size: 26px;">微信小程序“悠客社区”已经上线，同步更新更多精彩的内容，请多多关注！</p>
                 <p style="color: #ec4d17;font-weight: bold;">别忘记收藏！！每天进步一点点，人生将迈进一大步！</p>
+                <p style="color: #ec4d17;font-weight: bold;">有任何的意见建议，都可以去博客或者github联系我哟！</p>
                 {% for item in zl %}
                 <li>
                     <div class="mb-goods-img">
