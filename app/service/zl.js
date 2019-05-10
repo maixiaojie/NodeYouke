@@ -28,7 +28,29 @@ class ZlService extends Service {
     }
     const rs = await this.app.mysql.query(sql, [id, limit, offset]);
     return rs;
-}
+  }
+  async lastArticle(pid, id, order=0) {
+    var sql = '';
+    id = parseInt(id);
+    if(order == 1) {
+      sql = 'SELECT id, pid, article_title, ctime FROM article where pid = ? and id > ? ORDER BY ctime DESC LIMIT 0, 1'
+    }else {
+      sql = 'SELECT id, pid, article_title, ctime FROM article where pid = ? and id < ? ORDER BY ctime ASC LIMIT 0, 1'
+    }
+    const rs = await this.app.mysql.query(sql, [pid, id]);
+    return rs;
+  }
+  async nextArticle(pid, id, order=0) {
+    var sql = '';
+    id = parseInt(id);
+    if(order == 1) {
+      sql = 'SELECT id, pid, article_title, ctime FROM article where pid = ? and id < ? ORDER BY ctime DESC LIMIT 0, 1'
+    }else {
+      sql = 'SELECT id, pid, article_title, ctime FROM article where pid = ? and id > ? ORDER BY ctime ASC LIMIT 0, 1'
+    }
+    const rs = await this.app.mysql.query(sql, [pid, id]);
+    return rs;
+  }
   async addArticle(data) {
     const rs = await this.app.mysql.insert('article', data);
     return rs.affectedRows === 1;

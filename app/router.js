@@ -30,4 +30,9 @@ module.exports = app => {
   router.get('/newarticle/:pid', controller.lanmu.newarticle);
   router.post('/zl/newarticle', controller.lanmu.newArticle);
   router.get('/zl/detail/:id', controller.lanmu.detail);
+
+  // 新增 restful api 接口
+  router.get('/apis/zl', controller.lanmu.zlListApi);
+  router.get('/apis/al/:id/:order', controller.lanmu.articleListApi);
+  router.get('/apis/zl/detail/:id/:order', controller.lanmu.detailApi);
 };

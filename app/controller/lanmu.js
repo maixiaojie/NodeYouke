@@ -69,6 +69,44 @@ class LanmuController extends Controller {
             zhuanlan
         });
     }
+    async zlListApi() {
+        let page = 1;
+        const query = this.ctx.query;
+        const userinfo = this.ctx.user;
+        const zl = await this.ctx.service.zl.list();
+        return this.ctx.body = {
+            data: zl
+        }
+    }
+    async articleListApi() {
+        const id = this.ctx.params.id;
+        const order = this.ctx.params.order;
+        const zl_info = await this.ctx.service.zl.one(id);
+        const articles = await this.ctx.service.zl.listArticle(1, id, order);
+        return this.ctx.body = {
+            zl_info,
+            articles,
+            order
+        }        
+    }
+    async detailApi() {
+        const id = this.ctx.params.id;
+        const order = this.ctx.params.order;
+        await this.ctx.service.zl.updateRead(id);
+        const article = await this.ctx.service.zl.oneArticle(id);
+        const zhuanlan = await this.ctx.service.zl.one(article.pid);
+        const lastArticle = await this.ctx.service.zl.lastArticle(article.pid, article.id, order);
+        const nextArticle = await this.ctx.service.zl.nextArticle(article.pid, article.id, order);
+        article.mdhtml = article.mdhtml.toString();
+        return this.ctx.body = {
+            data: {
+                article,
+                lastArticle,
+                nextArticle
+            },
+            zhuanlan
+        }
+    }
 }
 
 module.exports = LanmuController;
